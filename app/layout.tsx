@@ -16,13 +16,13 @@ const user = {
   name: 'Mio Terasaki',
   email: 'me512papiko512@gmail.com',
   imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    '/images/Temmyicon.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
   { name: 'Home', href: './', current: true },
   { name: 'Experience', href: './experience', current: false },
-  { name: 'Projects', href: './projects', current: false },
-  { name: 'Contact', href: './contact', current: false }
+  { name: 'Projects', href: './projects', current: false }
+  //{ name: 'Contact', href: './contact', current: false }
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
