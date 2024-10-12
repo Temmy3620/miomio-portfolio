@@ -21,8 +21,8 @@ const user = {
 const navigation = [
   { name: 'Home', href: './', current: true },
   { name: 'Experience', href: './experience', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Contact', href: '#', current: false }
+  { name: 'Projects', href: './projects', current: false },
+  { name: 'Contact', href: './contact', current: false }
 ]
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
