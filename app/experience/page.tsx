@@ -1,24 +1,20 @@
 export default function Experience() {
   return (
-    <>
-      <div className="min-h-screen bg-white text-black p-8">
-        <div className="max-w-3xl mx-auto">
-          <Step number={1} title="Create project">
-            <p>
-              Run the init command to create a new Next.js project or to setup an existing one:
-            </p>
-          </Step>
+    <div className="bg-white text-black px-3">
+      <Step number={1} title="Create project">
+        <p>
+          Run the init command to create a new Next.js project or to setup an existing one:
+        </p>
+      </Step>
 
-          <Step number={2} title="Configure components.json">
-            <p>You will be asked a few questions to configure :</p>
-          </Step>
+      <Step number={2} title="Configure components.json">
+        <p>You will be asked a few questions to configure :</p>
+      </Step>
 
-          <Step number={3} title="That's it">
-            <p>You can now start adding components to your project.</p>
-          </Step>
-        </div>
-      </div>
-    </>
+      <Step number={3} title="That's it">
+        <p>You can now start adding components to your project.</p>
+      </Step>
+    </div>
   );
 }
 

@@ -29,9 +29,9 @@ export default function RootLayout({
       <body>
         <div className="hidden md:block">
           <div className="fixed-menu flex items-center justify-between p-8 mx-20">
-            <img src={user.imageUrl} alt="Icon" className="w-10 h-10 rounded-full mr-3 shadow-md" />
+            <img src={user.imageUrl} alt="Icon" className="w-10 h-10 rounded-full border border-gray-400 mr-3 shadow-md" />
             <nav className="p-1 bg-white rounded-full shadow-md">
-              <ul className="flex space-x-4 px-5 py-2">
+              <ul className="flex space-x-4 px-5 py-1">
                 {navigation.map((item) => (
                   <li key={item.name} className="text-gray-700 hover:text-teal-500">
                     <a
