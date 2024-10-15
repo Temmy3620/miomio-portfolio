@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 export const metadata: Metadata = {
   title: "miomio portfolio",
@@ -39,12 +37,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="hidden md:block">
-          <div className="fixed-menu flex items-center justify-between p-5 mx-20">
+          <div className="fixed-menu flex items-center justify-between p-8 mx-20">
             <img src={user.imageUrl} alt="Icon" className="w-10 h-10 rounded-full mr-3 shadow-md" />
             <nav className="p-1 bg-white rounded-full shadow-md">
               <ul className="flex space-x-4 px-5 py-2">
                 {navigation.map((item) => (
-                  <li key={item.name} className="text-black">
+                  <li key={item.name} className="text-gray-700 hover:text-teal-500">
                     <a
                       key={item.name}
                       href={item.href}
