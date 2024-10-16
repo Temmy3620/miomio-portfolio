@@ -11,10 +11,10 @@ const user = {
     '/images/Temmyicon2.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Home', href: '/', current: true },
-  { name: 'Experience', href: '/experience', current: false },
-  { name: 'Projects', href: '/projects', current: false }
-  //{ name: 'Contact', href: './contact', current: false }
+  { name: 'Home', href: '/' },
+  { name: 'Experience', href: '/experience' },
+  { name: 'Projects', href: '/projects' }
+  //{ name: 'Contact', href: './contact' }
 ]
 
 export default function RootLayout({
@@ -141,7 +141,7 @@ export default function RootLayout({
                             ))}
                           </div>
                           <p className="text-sm text-zinc-500">
-                            © 2024 Spencer Sharp. All rights reserved.
+                            © 2024 Mio Terasaki. All rights reserved.
                           </p>
                         </div>
                       </div>

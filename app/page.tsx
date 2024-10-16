@@ -43,6 +43,14 @@ export default function Home() {
             <li><strong>Frontend Frameworks</strong>: React, Next.js, Vue, Nuxt.js</li>
             <li><strong>Database</strong>: MySQL MongoDB </li>
             <li><strong>Version Control</strong>: GitHub, Git</li>
+            <li><strong>Cloud System</strong>: AWS S3, AWS CloudFront, AWS Lambda, AWS Elastic Beanstalk, AWS RDS</li>
+            <li><strong>DevOps Skills</strong>: Docker</li>
+          </ul>
+
+          <ul>
+            <li>Exploring new cultures and gaining inspiration from travel experiences</li>
+            <li>Big fan of VTuber content, especially streams by Mito Tsukino and Ange Katrina</li>
+            <li>Curious about space and technology innovations</li>
           </ul>
 
         </div>
