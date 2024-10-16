@@ -63,7 +63,7 @@ export default function Projects() {
             <li className="group relative flex flex-col items-start">
               <a href="#" className="group">
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                  <img src={project.imageSrc} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center opacity-50 group-hover:opacity-100" />
+                  <img src={project.imageSrc} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center opacity-30 group-hover:opacity-100" />
                 </div>
               </a>
             </li>
