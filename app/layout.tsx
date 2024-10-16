@@ -83,7 +83,7 @@ export default function RootLayout({
                             {navigation.map((item) => (
                               <li key={item.name}>
                                 <a
-                                  className="relative text-gray-200 transition hover:text-teal-500 block px-3 py-2 ${item.current ? 'text-teal-400' : ''}`}"
+                                  className={`relative text-gray-200 transition hover:text-teal-500 block px-3 py-2 ${item.current ? 'text-teal-400' : ''}`}
                                   key={item.name}
                                   href={item.href}
                                   aria-current={item.current ? 'page' : undefined}
@@ -102,7 +102,7 @@ export default function RootLayout({
               </div>
             </div>
             <main className="flex-auto">
-              <div className="sm:px-8 mt-16 sm:mt-32">
+              <div className="sm:px-8 mt-32 sm:mt-32">
                 <div className="mx-auto w-full max-w-7xl lg:px-8">
                   <div className="relative px-4 sm:px-8 lg:px-12">
                     <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
