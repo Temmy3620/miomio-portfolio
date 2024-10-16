@@ -69,16 +69,16 @@ export default function RootLayout({
                                 <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                               </svg>
                             </PopoverButton>
-
                             <PopoverPanel
                               transition
-                              className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 duration-150 bg-zinc-900 ring-zinc-800 transition data-[enter]:duration-200 data-[enter]:ease-out"
+                              className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 duration-150 bg-zinc-900 ring-zinc-800 transition ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
                             >
                               <nav className="">
                                 <ul className="-my-2 divide-y text-base divide-zinc-100/5 text-zinc-300">
                                   {navigation.map((item) => (
                                     <li key={item.name}>
-                                      <a href={item.href} className="block py-2">
+                                      <a href={item.href} className={`block py-2 hover:text-teal-400 ${pathname === item.href ? 'text-teal-400' : ''
+                                        }`}>
                                         {item.name}
                                       </a>
                                     </li>
