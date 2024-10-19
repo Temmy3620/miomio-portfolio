@@ -59,7 +59,7 @@ export default function Projects() {
                     className="h-full w-full object-cover object-center opacity-40 transition-opacity duration-250 group-hover:opacity-75"
                   />
                   <div className="absolute inset-0 flex items-end justify-start transition-opacity duration-250 opacity-100 group-hover:opacity-10">
-                    <p className="text-black text-xl font-bold p-3">{project.name}</p>
+                    <p className="text-gray-800 text-xl font-bold p-3">{project.name}</p>
                   </div>
                 </div>
               </a>
