@@ -1,47 +1,37 @@
 const projects = [
   {
-    name: 'Planetaria',
-    description: 'Creating technology to empower civilians to explore space on their own terms.',
-    link: {
-      href: 'http://planetaria.tech',
-      label: 'planetaria.tech',
-    },
+    name: 'Microsoft Bing API',
+    href: 'http://planetaria.tech',
     imageSrc: '/images/Sample.png',
   },
   {
-    name: 'Animaginary',
-    description: 'High performance web animation library, hand-written in optimized WASM.',
-    link: {
-      href: '#',
-      label: 'github.com',
-    },
+    name: 'Sample',
+    href: '#',
     imageSrc: '/images/Sample.png',
   },
   {
-    name: 'HelioStream',
-    description: 'Real-time video streaming library, optimized for interstellar transmission.',
-    link: {
-      href: '#',
-      label: 'github.com',
-    },
+    name: 'Sample',
+    href: '#',
     imageSrc: '/images/Sample.png',
   },
   {
-    name: 'cosmOS',
-    description: 'The operating system that powers our Planetaria space shuttles.',
-    link: {
-      href: '#',
-      label: 'github.com',
-    },
+    name: 'Sample',
+    href: '#',
     imageSrc: '/images/Sample.png',
   },
   {
-    name: 'OpenShuttle',
-    description: 'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: {
-      href: '#',
-      label: 'github.com',
-    },
+    name: 'Sample',
+    href: '#',
+    imageSrc: '/images/Sample.png',
+  },
+  {
+    name: 'Sample',
+    href: '#',
+    imageSrc: '/images/Sample.png',
+  },
+  {
+    name: 'Sample',
+    href: '#',
     imageSrc: '/images/Sample.png',
   },
 ];
@@ -50,10 +40,10 @@ export default function Projects() {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
           Creations from my engineering efforts and things born out of necessity.
         </h1>
-        <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+        <p className="mt-6 text-base text-zinc-400">
           I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.
         </p>
       </header>
@@ -62,8 +52,15 @@ export default function Projects() {
           {projects.map((project) => (
             <li className="group relative flex flex-col items-start">
               <a href="#" className="group">
-                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
-                  <img src={project.imageSrc} alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." className="h-full w-full object-cover object-center opacity-30 group-hover:opacity-100" />
+                <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-2xl bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 relative">
+                  <img
+                    src={project.imageSrc}
+                    alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
+                    className="h-full w-full object-cover object-center opacity-40 transition-opacity duration-250 group-hover:opacity-75"
+                  />
+                  <div className="absolute inset-0 flex items-end justify-start transition-opacity duration-250 opacity-100 group-hover:opacity-10">
+                    <p className="text-black text-xl font-bold p-3">{project.name}</p>
+                  </div>
                 </div>
               </a>
             </li>
