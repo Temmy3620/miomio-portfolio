@@ -20,8 +20,8 @@ const articles = [
     description:
       'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself',
     link: {
-      label: 'Detail Product',
-      href: '#'
+      label: 'Microsoft Bing API Project',
+      href: './projects/MicrosoftBingApi'
     },
   },
 ];
@@ -51,7 +51,7 @@ export default function Experience() {
                     </p>
                   )}
                   {article.link?.href && (
-                    <a href="#" className="hover:opacity-100" target="_blank" rel="noopener noreferrer">
+                    <a href={article.link.href} className="hover:opacity-100" target="_blank" rel="noopener noreferrer">
                       <div className="relative z-10 mt-2 flex items-center text-sm font-medium text-teal-500 hover:bg-zinc-500/25 rounded-lg sm:rounded-xl lg:rounded-2xl py-1 px-3">
                         {article.link.label}
                         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="ml-1 h-4 w-4 stroke-current">
