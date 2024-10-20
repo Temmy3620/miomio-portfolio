@@ -1,27 +1,28 @@
 const articles = [
   {
     title: 'I’m starting my own business and beginning my career as a freelance engineer',
-    date: '2024-09-30'
+    date: {
+      start: '2024-09-30'
+    },
   },
   {
     title: 'I have been contracted by Lograph Inc. for outsourced work.',
-    date: '2024-10-01',
+    date: {
+      start: '2024-10-01'
+    },
   },
   {
-    title: 'Lograph Inc: Start implementing the Offline Conversion API using the Microsoft Bing API.',
-    date: '2024-10-01',
+    title: 'Lograph Inc: Implementing the Offline Conversion API using the Microsoft Bing API.',
+    date: {
+      start: '2024-10-01',
+      end: '2024-10-30'
+    },
     description:
       'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself',
     link: {
       label: 'Detail Product',
       href: '#'
     },
-  },
-  {
-    title: 'Lograph Inc: End implementing the Offline Conversion API using the Microsoft Bing API',
-    date: '2022-10-30',
-    description:
-      'When we released the first version of cosmOS last year, it was written in Go. Go is a wonderful programming language, but it’s been a while since I’ve seen an article on the front page of Hacker News about rewriting some important tool in Go and I see articles on there about rewriting things in Rust every single week.',
   },
 ];
 
@@ -43,12 +44,7 @@ export default function Experience() {
               <div key={article.title} className="md:grid md:grid-cols-4 md:items-baseline">
                 <div className="md:col-span-3 flex flex-col items-start">
                   <h2 className="text-base font-semibold tracking-tight text-zinc-100">{article.title}</h2>
-                  <time className="md:hidden relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500 pl-3.5" dateTime={article.date}>
-                    <span className="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
-                      <span className="h-4 w-0.5 rounded-full bg-zinc-500"></span>
-                    </span>
-                    {new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </time>
+
                   {article.description && (
                     <p className="relative z-10 mt-2 text-sm text-zinc-400">
                       {article.description}
@@ -66,8 +62,19 @@ export default function Experience() {
                   )}
 
                 </div>
-                <time className="mt-1 hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500" dateTime={article.date}>
-                  {new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                <time className="mt-1 hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500">
+                  {new Date(article.date.start).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}<br />
+                  {article.date.end && (
+                    <>
+                      <span className="mx-2">|</span><br />
+                      {new Date(article.date.end).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                      <br />
+                    </>
+                  )}
                 </time>
               </div>
             ))}

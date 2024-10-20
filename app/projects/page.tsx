@@ -1,10 +1,8 @@
-import test from "node:test";
-
 const projects = [
   {
     name: 'Microsoft Bing API',
     textColor: 'text-blue-700',
-    href: 'http://planetaria.tech',
+    href: './projects/MicrosoftBingApi',
     imageSrc: 'https://media.licdn.com/dms/image/D4E12AQG-VLYWTLqTBw/article-cover_image-shrink_720_1280/0/1723114682752?e=2147483647&v=beta&t=fvzCJ8dOVMSS1TV-xYkkUvBQ_XNP3qqTY6fw56T9494',
   },
   {
@@ -48,7 +46,7 @@ export default function Projects() {
         <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <li className="group relative flex flex-col items-start">
-              <a href="#" className="group">
+              <a href={project.href} className="group">
                 <div className="md:w-64 md:h-40 overflow-hidden rounded-2xl bg-gray-200 relative">
                   <img
                     src={project.imageSrc}
