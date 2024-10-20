@@ -8,34 +8,28 @@ const projects = [
     imageSrc: 'https://media.licdn.com/dms/image/D4E12AQG-VLYWTLqTBw/article-cover_image-shrink_720_1280/0/1723114682752?e=2147483647&v=beta&t=fvzCJ8dOVMSS1TV-xYkkUvBQ_XNP3qqTY6fw56T9494',
   },
   {
-    name: 'Sample',
+    name: 'In preparation...',
+    textColor: 'text-gray-700',
     href: '#',
-    imageSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDolSgvVOH3Uje7JydOPsaCGqKFXad5f85Sg&s',
+    imageSrc: 'https://yamaichiba.com/wp-content/uploads/2017/11/noimage.png',
   },
   {
-    name: 'Sample',
+    name: 'In preparation...',
+    textColor: 'text-gray-700',
     href: '#',
-    imageSrc: '/images/Sample.png',
+    imageSrc: 'https://yamaichiba.com/wp-content/uploads/2017/11/noimage.png',
   },
   {
-    name: 'Sample',
+    name: 'In preparation...',
+    textColor: 'text-gray-700',
     href: '#',
-    imageSrc: '/images/Sample.png',
+    imageSrc: 'https://yamaichiba.com/wp-content/uploads/2017/11/noimage.png',
   },
   {
-    name: 'Sample',
+    name: 'In preparation...',
+    textColor: 'text-gray-700',
     href: '#',
-    imageSrc: '/images/Sample.png',
-  },
-  {
-    name: 'Sample',
-    href: '#',
-    imageSrc: '/images/Sample.png',
-  },
-  {
-    name: 'Sample',
-    href: '#',
-    imageSrc: '/images/Sample.png',
+    imageSrc: 'https://yamaichiba.com/wp-content/uploads/2017/11/noimage.png',
   },
 ];
 
@@ -55,11 +49,11 @@ export default function Projects() {
           {projects.map((project) => (
             <li className="group relative flex flex-col items-start">
               <a href="#" className="group">
-                <div className="md:w-75 md:h-47 overflow-hidden rounded-2xl bg-gray-200 relative">
+                <div className="md:w-64 md:h-40 overflow-hidden rounded-2xl bg-gray-200 relative">
                   <img
                     src={project.imageSrc}
                     alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                    className="h-full w-full object-contain object-center opacity-40 transition-opacity duration-250 group-hover:opacity-75"
+                    className="h-full w-full object-cover opacity-40 transition-opacity duration-250 group-hover:opacity-75"
                   />
                   <div className="absolute inset-0 flex items-end justify-start transition-opacity duration-250 opacity-100 group-hover:opacity-10">
                     <p className={`text-xl font-bold p-3 ${project.textColor}`}>{project.name}</p>

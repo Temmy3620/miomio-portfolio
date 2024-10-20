@@ -40,7 +40,7 @@ export default function Experience() {
         <div className="md:border-l md:pl-6 md:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-8">
             {articles.map((article) => (
-              <article key={article.title} className="md:grid md:grid-cols-4 md:items-baseline">
+              <div key={article.title} className="md:grid md:grid-cols-4 md:items-baseline">
                 <div className="md:col-span-3 group relative flex flex-col items-start">
                   <h2 className="text-base font-semibold tracking-tight text-zinc-100">
                     <div className="absolute -inset-x-4 -inset-y-6 z-0 scale-95 opacity-0 sm:-inset-x-6 sm:rounded-2xl bg-zinc-800/50"></div>
@@ -60,7 +60,7 @@ export default function Experience() {
                   )}
                   {article.link?.href && (
                     <a href="#" className="hover:opacity-100" target="_blank" rel="noopener noreferrer">
-                      <div aria-hidden="true" className="relative z-10 mt-2 flex items-center text-sm font-medium text-teal-500">
+                      <div className="relative z-10 mt-2 flex items-center text-sm font-medium text-teal-500">
                         {article.link.label}
                         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="ml-1 h-4 w-4 stroke-current">
                           <path d="M6.75 5.75 9.25 8l-2.5 2.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -72,7 +72,7 @@ export default function Experience() {
                 <time className="mt-1 hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500" dateTime={article.date}>
                   {new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </time>
-              </article>
+              </div>
             ))}
           </div>
         </div>
