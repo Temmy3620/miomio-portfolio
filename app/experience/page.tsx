@@ -15,7 +15,7 @@ const articles = [
     title: 'Lograph Inc: Implementing the Offline Conversion API using the Microsoft Bing API.',
     date: {
       start: '2024-10-01',
-      end: '2024-10-30'
+      end: '2024-11-07'
     },
     description:
       'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself',
