@@ -1,3 +1,16 @@
+
+export default function MicrosoftBingApi() {
+  return (
+    <div className="mx-auto max-w-2xl lg:max-w-5xl">
+      <header className="max-w-2xl">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+          In preparation...
+        </h1>
+      </header>
+    </div>
+  );
+}
+/*
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
@@ -152,3 +165,4 @@ export default function MicrosoftBingApi() {
     </div>
   );
 }
+*/
