@@ -1,17 +1,5 @@
 const articles = [
   {
-    title: 'I’m starting my own business and beginning my career as a freelance engineer',
-    date: {
-      start: '2024-09-30'
-    },
-  },
-  {
-    title: 'I have been contracted by Lograph Inc. for outsourced work.',
-    date: {
-      start: '2024-10-01'
-    },
-  },
-  {
     title: 'Lograph Inc: Implementing the Offline Conversion API using the Microsoft Bing API.',
     date: {
       start: '2024-10-01',
@@ -24,6 +12,18 @@ const articles = [
       href: './projects/MicrosoftBingApi'
     },
   },
+  {
+    title: 'I have been contracted by Lograph Inc. for outsourced work.',
+    date: {
+      start: '2024-10-01'
+    },
+  },
+  {
+    title: 'I’m starting my own business and beginning my career as a freelance engineer',
+    date: {
+      start: '2024-09-30'
+    },
+  }
 ];
 
 export default function Experience() {
