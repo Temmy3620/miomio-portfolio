@@ -11,10 +11,10 @@ const user = {
     '/images/Temmyicon2.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Home', href: '/' },
+  { name: 'Home', href: '/home' },
   { name: 'Experience', href: '/experience' },
   { name: 'Projects', href: '/projects' }
-  //{ name: 'Contact', href: './contact' }
+  //{ name: 'Contact', href: '/contact' }
 ]
 
 export default function RootLayout({
@@ -77,8 +77,10 @@ export default function RootLayout({
                                 <ul className="-my-2 divide-y text-base divide-zinc-100/5 text-zinc-300">
                                   {navigation.map((item) => (
                                     <li key={item.name}>
-                                      <a href={item.href} className={`block py-2 hover:text-teal-400 ${pathname === item.href ? 'text-teal-400' : ''
-                                        }`}>
+                                      <a
+                                        href={item.href} className={`block py-2 hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-400' : ''}`}
+                                        aria-current={pathname.startsWith(item.href) ? 'page' : undefined}
+                                      >
                                         {item.name}
                                       </a>
                                     </li>
@@ -94,7 +96,7 @@ export default function RootLayout({
                             {navigation.map((item) => (
                               <li key={item.name}>
                                 <a
-                                  className={`relative transition hover:text-teal-500 block px-3 py-2 ${pathname === item.href ? 'text-teal-400' : 'text-gray-200'}`}
+                                  className={`relative transition hover:text-teal-500 block px-3 py-2 ${pathname.startsWith(item.href) ? 'text-teal-400' : 'text-gray-200'}`}
                                   key={item.name}
                                   href={item.href}
                                   aria-current={pathname === item.href ? 'page' : undefined}

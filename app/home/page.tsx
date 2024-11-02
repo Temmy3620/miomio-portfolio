@@ -1,9 +1,3 @@
-export default function Home() {
-  return (
-    <p className="text-white">No page.</p>
-  );
-}
-/*
 const user = {
   name: 'Mio Terasaki',
   email: 'me512papiko512@gmail.com',
@@ -156,4 +150,3 @@ export default function Home() {
     </div>
   );
 }
-*/
