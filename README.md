@@ -37,4 +37,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 ## Deployment Environment
 
-- [Hosted App: miomio-portfolio](https://miomio-portfolio.vercel.app)
+<a href="https://miomio-portfolio.vercel.app" target="_blank">Hosted App: miomio-portfolio</a>
