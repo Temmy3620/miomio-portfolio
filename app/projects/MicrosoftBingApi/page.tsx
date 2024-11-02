@@ -10,11 +10,24 @@ export default function MicrosoftBingApi() {
     </div>
   );
 }
+
 /*
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import GistEmbed from '../../components/GistEmbed';
 
 export default function MicrosoftBingApi() {
+  const codeHtml = `
+    <div class="codeBlock">
+      <div class="codeBlockHeader">
+        <button class="codeBlockHeader-copy">Copy</button>
+      </div>
+      <pre>
+        <code>
+          const hello = "Hello, world!";
+          console.log(hello);
+        </code>
+      </pre>
+    </div>
+  `;
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
@@ -51,99 +64,12 @@ export default function MicrosoftBingApi() {
           <span className="mr-2 text-lg">・</span>
           <span>Get Access Token</span>
         </div>
-        <SyntaxHighlighter language="php" style={prism} className="rounded-lg">
-          {`
-
-          use GuzzleHttp\Client;
-          use GuzzleHttp\Exception\GuzzleException;
-
-          $client = new Client();
-
-          $params = [
-            'form_params' => [
-                'client_id' => $_ENV['MICROSOFT_ADS_CLIENT_ID'],
-                'client_secret' => $_ENV['MICROSOFT_ADS_CLIENT_SECRET'],
-                'refresh_token' => $_ENV['MICROSOFT_ADS_REFRESH_TOKEN'],
-                'grant_type' => 'refresh_token',
-                'scope' => 'https://ads.microsoft.com/msads.manage'
-            ]
-          ];
-
-
-          try {
-            $response = $client -> post($url, $params);
-            $body = $response->getBody()->getContents();
-            $data = json_decode($body, true);
-            $access_token = $data['access_token'] ?? null;
-
-            if ($access_token) {
-              $this -> body['access_token'] = $access_token;
-            } else {
-              $this -> body['error'] = 'Failed to retrieve access token';
-            }
-          } catch (GuzzleException $e) {
-            $this -> body['error'] = $e->getMessage();
-          }
-
-          echo $this -> body['access_token'];
-
-        `}
-        </SyntaxHighlighter>
+        <GistEmbed gistUrl="https://gist.github.com/Temmy3620/165034550487e06b6ae38062fe8d14f0.js" />
         <div className="flex items-start text-white mt-5">
           <span className="mr-2 text-lg">・</span>
           <span>Send OfflineConvertion</span>
         </div>
-        <SyntaxHighlighter language="php" style={prism} className="rounded-lg">
-          {`
-              use GuzzleHttp\Client;
-
-              $client = new Client();
-
-              $offlineConversionXml = <<<XML
-                  <OfflineConversion>
-                      <ConversionCurrencyCode i:nil="false">{$_ENV['Currency_Code']}</ConversionCurrencyCode>
-                      <ConversionName i:nil="false">{$_ENV['CONVERSION_NAME']}</ConversionName>
-                      <ConversionTime>{$_ENV[CONVERSION_TIME]}</ConversionTime>
-                      <ConversionValue i:nil="false">{$_ENV['CONVERSION_VALUE']}</ConversionValue>
-                      <MicrosoftClickId i:nil="false">{$_ENV['MICROSOFT_CLICK_ID']}</MicrosoftClickId>
-                  </OfflineConversion>
-          XML;
-
-              $soapRequest = <<<XML
-                <s:Envelope xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
-                    <s:Header xmlns="https://bingads.microsoft.com/CampaignManagement/v13">
-                        <Action mustUnderstand="1">ApplyOfflineConversions</Action>
-                        <AuthenticationToken i:nil="false">{$access_token}</AuthenticationToken>
-                        <CustomerAccountId i:nil="false">{$_ENV['MICROSOFT_ADS_ACCOUNT_ID']}</CustomerAccountId>
-                        <CustomerId i:nil="false">{$_ENV['MICROSOFT_ADS_CUSTOMER_ID']}</CustomerId>
-                        <DeveloperToken i:nil="false">{$_ENV['MICROSOFT_ADS_DEVELOPER_TOKEN']}</DeveloperToken>
-                    </s:Header>
-                    <s:Body>
-                        <ApplyOfflineConversionsRequest xmlns="https://bingads.microsoft.com/CampaignManagement/v13">
-                            <OfflineConversions i:nil="false">
-                                {$offlineConversionXml}
-                            </OfflineConversions>
-                        </ApplyOfflineConversionsRequest>
-                    </s:Body>
-                </s:Envelope>
-            XML;
-
-              $response = $client->post(
-                  $_ENV['CAMPAIGN_MANAGEMENT_ENTRY_POINT'],
-                  [
-                      'headers' => [
-                          'Content-Type' => 'text/xml',
-                          'SOAPAction' => 'ApplyOfflineConversions'
-                      ],
-                      'body' => $soapRequest
-                  ]
-              );
-
-              echo $response;
-
-
-          `}
-        </SyntaxHighlighter>
+        <GistEmbed gistUrl="https://gist.github.com/Temmy3620/24e3fa4c66434a6afcbef419d1d03ce2.js" />
       </div>
       <div className="mt-6 sm:mt-10">
         <h1 className="text-1xl tracking-tight sm:text-3xl text-zinc-100">Testing and Debugging</h1>
@@ -159,7 +85,7 @@ export default function MicrosoftBingApi() {
       <div className="mt-6 sm:mt-10">
         <h1 className="text-1xl tracking-tight sm:text-3xl text-zinc-100">Results and Outcomes</h1>
         <p className="mt-6 text-base text-zinc-400">
-
+          By enabling the client to send offline conversion data to Microsoft Advertising, they can measure how much their online ads contribute to phone purchases and inquiries. This provides a comprehensive understanding of ad effectiveness, allowing for more precise optimization of retargeting and targeting strategies. Consequently, the client can enhance ROI and build more effective marketing strategies.
         </p>
       </div>
     </div>

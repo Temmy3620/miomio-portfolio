@@ -1,4 +1,4 @@
-export default function Home() {
+export default function NoPage() {
   return (
     <p className="text-white">No page.</p>
   );
