@@ -63,18 +63,13 @@ export default function Experience() {
 
                 </div>
                 <time className="mt-1 hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500">
-                  {new Date(article.date.start).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}<br />
                   {article.date.end && (
                     <>
+                      {new Date(article.date.end).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}<br />
                       <span className="mx-2">|</span><br />
-                      {new Date(article.date.end).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                      <br />
                     </>
                   )}
+                  {new Date(article.date.start).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}<br />
                 </time>
               </div>
             ))}
