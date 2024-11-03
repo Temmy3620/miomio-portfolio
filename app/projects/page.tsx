@@ -1,6 +1,6 @@
 const projects = [
   {
-    name: 'Microsoft Bing Api PJ',
+    name: 'Microsoft Send OfflineConvertions',
     textColor: 'text-blue-700',
     href: './projects/MicrosoftBingApi',
     imageSrc: 'https://media.licdn.com/dms/image/D4E12AQG-VLYWTLqTBw/article-cover_image-shrink_720_1280/0/1723114682752?e=2147483647&v=beta&t=fvzCJ8dOVMSS1TV-xYkkUvBQ_XNP3qqTY6fw56T9494',
