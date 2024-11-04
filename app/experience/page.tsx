@@ -1,6 +1,6 @@
 const articles = [
   {
-    title: 'Lograph Inc: Implementing the Offline Conversion API using the Microsoft Bing API.',
+    title: 'a certain advertising company: Implementing the Offline Conversion API using the Microsoft Bing API.',
     date: {
       start: '2024-10-01',
       end: '2024-11-07'
@@ -13,7 +13,7 @@ const articles = [
     },
   },
   {
-    title: 'I have been contracted by Lograph Inc. for outsourced work.',
+    title: 'I have been contracted by a certain advertising company. for outsourced work.',
     date: {
       start: '2024-10-01'
     },
