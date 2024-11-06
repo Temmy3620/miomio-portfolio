@@ -25,6 +25,18 @@ export default function RootLayout({
   const pathname = usePathname();
   return (
     <html lang="en">
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16766599060"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16766599060');
+          `}
+        </script>
+      </head>
       <body className="flex h-full bg-black">
         <div className="flex w-full">
           <div className="fixed inset-0 flex justify-center sm:px-8">
