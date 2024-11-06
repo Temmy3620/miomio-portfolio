@@ -141,11 +141,20 @@ export default function RootLayout({
             {pathname === '/conversion' && (
               <script>
                 {`
-                  gtag('event', 'conversion', {
-                      'send_to': 'AW-16766599060/9hbbCMqlheYZEJT_97o-',
-                      'value': 1.0,
-                      'currency': 'JPY'
-                  });
+                  function gtag_report_conversion(url) {
+                    var callback = function () {
+                      if (typeof(url) != 'undefined') {
+                        window.location = url;
+                      }
+                    };
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-16766599060/9hbbCMqlheYZEJT_97o-',
+                        'value': 1.0,
+                        'currency': 'JPY',
+                        'event_callback': callback
+                    });
+                    return false;
+                  }
                 `}
               </script>
             )}
