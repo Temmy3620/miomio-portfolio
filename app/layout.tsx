@@ -36,6 +36,8 @@ export default function RootLayout({
             gtag('config', 'AW-16766599060');
           `}
         </script>
+
+
       </head>
       <body className="flex h-full bg-black">
         <div className="flex w-full">
@@ -135,6 +137,18 @@ export default function RootLayout({
                 </div>
               </div>
             </main>
+            {/* コンバージョンページの場合のみイベントスニペットを挿入 */}
+            {pathname === '/conversion' && (
+              <script>
+                {`
+                  gtag('event', 'conversion', {
+                      'send_to': 'AW-16766599060/9hbbCMqlheYZEJT_97o-',
+                      'value': 1.0,
+                      'currency': 'JPY'
+                  });
+                `}
+              </script>
+            )}
             <footer className="mt-32 flex-none">
               <div className="sm:px-8">
                 <div className="mx-auto w-full max-w-7xl lg:px-8">
