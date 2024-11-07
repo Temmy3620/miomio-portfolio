@@ -25,20 +25,6 @@ export default function RootLayout({
   const pathname = usePathname();
   return (
     <html lang="en">
-      <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16766599060"></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-16766599060');
-          `}
-        </script>
-
-
-      </head>
       <body className="flex h-full bg-black">
         <div className="flex w-full">
           <div className="fixed inset-0 flex justify-center sm:px-8">
@@ -137,27 +123,6 @@ export default function RootLayout({
                 </div>
               </div>
             </main>
-            {/* コンバージョンページの場合のみイベントスニペットを挿入 */}
-            {pathname === '/conversion' && (
-              <script>
-                {`
-                  function gtag_report_conversion(url) {
-                    var callback = function () {
-                      if (typeof(url) != 'undefined') {
-                        window.location = url;
-                      }
-                    };
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-16766599060/9hbbCMqlheYZEJT_97o-',
-                        'value': 1.0,
-                        'currency': 'JPY',
-                        'event_callback': callback
-                    });
-                    return false;
-                  }
-                `}
-              </script>
-            )}
             <footer className="mt-32 flex-none">
               <div className="sm:px-8">
                 <div className="mx-auto w-full max-w-7xl lg:px-8">
