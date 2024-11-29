@@ -1,4 +1,4 @@
-
+/*
 export default function MicrosoftBingApi() {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
@@ -10,24 +10,9 @@ export default function MicrosoftBingApi() {
     </div>
   );
 }
-
-/*
-import GistEmbed from '../../components/GistEmbed';
+*/
 
 export default function MicrosoftBingApi() {
-  const codeHtml = `
-    <div class="codeBlock">
-      <div class="codeBlockHeader">
-        <button class="codeBlockHeader-copy">Copy</button>
-      </div>
-      <pre>
-        <code>
-          const hello = "Hello, world!";
-          console.log(hello);
-        </code>
-      </pre>
-    </div>
-  `;
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
@@ -56,22 +41,6 @@ export default function MicrosoftBingApi() {
         </p>
       </div>
       <div className="mt-6 sm:mt-10">
-        <h1 className="text-1xl tracking-tight sm:text-3xl text-zinc-100">Implementation Steps</h1>
-        <p className="mt-6 text-base text-zinc-400">
-          I developed the Offline Conversion API using PHP to enable bulk submission of conversion data to each client’s Microsoft Advertising account. Of course, I also implemented error handling processes.
-        </p>
-        <div className="flex items-start text-white mt-5">
-          <span className="mr-2 text-lg">・</span>
-          <span>Get Access Token</span>
-        </div>
-        <GistEmbed gistUrl="https://gist.github.com/Temmy3620/165034550487e06b6ae38062fe8d14f0.js" />
-        <div className="flex items-start text-white mt-5">
-          <span className="mr-2 text-lg">・</span>
-          <span>Send OfflineConvertion</span>
-        </div>
-        <GistEmbed gistUrl="https://gist.github.com/Temmy3620/24e3fa4c66434a6afcbef419d1d03ce2.js" />
-      </div>
-      <div className="mt-6 sm:mt-10">
         <h1 className="text-1xl tracking-tight sm:text-3xl text-zinc-100">Testing and Debugging</h1>
         <p className="mt-6 text-bold text-white">Unit Test:</p>
         <p className="mt-1 text-base text-zinc-400">
@@ -91,4 +60,3 @@ export default function MicrosoftBingApi() {
     </div>
   );
 }
-*/
