@@ -10,7 +10,7 @@ const frontEnd = [
 ]
 
 const backEnd = [
-  { subject: 'PHP', value: 3 },
+  { subject: 'PHP', value: 4 },
   { subject: 'Java', value: 1 },
   { subject: 'Python', value: 1 },
   { subject: 'Laravel', value: 2 },
