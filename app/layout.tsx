@@ -4,6 +4,7 @@ import "./globals.css";
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { usePathname } from 'next/navigation';
 import Script from 'next/script';
+import { useEffect, useState } from 'react';
 
 const user = {
   name: 'Mio Terasaki',
@@ -25,6 +26,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
+  const [hideHeader, setHideHeader] = useState(false);
+
+  useEffect(() => {
+    let lastScroll = 0;
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+      setHideHeader(currentScroll > lastScroll && currentScroll > 10);
+      lastScroll = currentScroll;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -49,7 +64,7 @@ export default function RootLayout({
             </div>
           </div>
           <div className="relative flex w-full flex-col">
-            <div className="fixed-menu pt-6">
+            <div className={`fixed-menu pt-6 transition-all duration-300 ${hideHeader ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
               <div className="sm:px-8 w-full">
                 <div className="mx-auto w-full max-w-7xl lg:px-8">
                   <div className="relative px-4 sm:px-8 lg:px-12">
