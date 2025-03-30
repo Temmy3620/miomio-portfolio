@@ -1,5 +1,18 @@
 const articles = [
   {
+    title: 'a certain advertising company: Implementing enhanced user data functionality using the Google Ads API.',
+    date: {
+      start: '2024-11-08',
+      end: '2025-04-15'
+    },
+    description:
+      'Improved user features in accordance with the company’s policy, and worked closely with the project manager to build the best possible system.',
+    link: {
+      label: "Google Ads Send User's Data Project",
+      href: './projects/GoogleAdsUserDataSend'
+    },
+  },
+  {
     title: 'a certain advertising company: Implementing the Offline Conversion API using the Microsoft Bing API.',
     date: {
       start: '2024-10-01',
