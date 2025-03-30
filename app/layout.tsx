@@ -3,6 +3,7 @@
 import "./globals.css";
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { usePathname } from 'next/navigation';
+import Script from 'next/script';
 
 const user = {
   name: 'Mio Terasaki',
@@ -26,6 +27,20 @@ export default function RootLayout({
   const pathname = usePathname();
   return (
     <html lang="en">
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-FGSHNZ2S1J"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-FGSHNZ2S1J');
+          `}
+        </Script>
+      </head>
       <body className="flex h-full bg-black">
         <div className="flex w-full">
           <div className="fixed inset-0 flex justify-center sm:px-8">
