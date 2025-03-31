@@ -10,19 +10,19 @@ const frontEnd = [
 ]
 
 const backEnd = [
-  { subject: 'PHP', value: 4 },
+  { subject: 'PHP', value: 5 },
   { subject: 'Java', value: 1 },
   { subject: 'Python', value: 1 },
   { subject: 'Laravel', value: 2 },
-  { subject: 'MySQL', value: 3 },
-  { subject: 'MongoDB', value: 3 },
+  { subject: 'MySQL', value: 4 },
+  { subject: 'MongoDB', value: 4 },
 ]
 
 const DevOps = [
-  { subject: 'AWS', value: 3 },
+  { subject: 'AWS', value: 4 },
   { subject: 'Docker', value: 3 },
-  { subject: 'GitHub', value: 3 },
-  { subject: 'GCP', value: 1 },
+  { subject: 'GitHub', value: 4 },
+  { subject: 'GCP', value: 2 },
   { subject: 'Azure', value: 1 },
   { subject: 'PHPUnit', value: 2.5 },
 ]
