@@ -4,27 +4,44 @@ const user = {
   name: "Mio Terasaki",
   imageUrl: "/images/Temmyicon.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   email: "me512papiko512@gmail.com",
-  bio: "I’m Mio Terasaki. I currently work as a Freelance Web Developer while traveling the world.",
-  personalInfo: [
-    { label: "Name", value: "Mio Terasaki" },
-    { label: "Age", value: "25" },
-    { label: "Gender", value: "Female" },
-    { label: "Origin", value: "Japan" },
-    { label: "Current Location", value: "Traveling the world while working remotely" },
-    { label: "Profession", value: "Freelance Web Engineer" },
-  ],
-  skills: [
-    { label: "Backend Development", value: "PHP, Laravel, API integrations (Microsoft Advertising, Google Ads)" },
-    { label: "Frontend Frameworks", value: "React, Next.js, Vue, Nuxt.js" },
-    { label: "Database", value: "MySQL, MongoDB" },
-    { label: "Version Control", value: "GitHub, Git" },
-    { label: "Cloud System", value: "AWS S3, AWS CloudFront, AWS Lambda, AWS Elastic Beanstalk, AWS RDS" },
-    { label: "DevOps Skills", value: "Docker" },
-  ],
+  bio: "I’m Temmy. I currently work as a Freelance Web Developer while traveling the world.",
   interests: [
-    "Exploring new cultures and gaining inspiration from travel experiences",
-    "Big fan of VTuber content, especially streams by Mito Tsukino and Ange Katrina",
-    "Curious about space and technology innovations",
+    {
+      sentense:
+        [
+          "I’m exploring ways to work freely while traveling the world.",
+          "Working in both Japan and abroad has shown me how different cultures view work, and it’s been a great source of inspiration.",
+          "I’m always thinking about what kind of life truly brings happiness."
+        ]
+    },
+    {
+      sentense:
+        [
+          "I’m a 25-year-old freelance web engineer from Toyama, Japan.",
+          "After graduating and moving to Tokyo, I worked as a company engineer for about three years before going independent."
+        ]
+    },
+    {
+      sentense:
+        [
+          "These days, I spend a lot of time abroad, which often makes me crave fish.",
+          "I can list tons of foods I dislike, but I don’t really have a favorite."
+        ]
+    },
+    {
+      sentense:
+        [
+          "My hobby is watching YouTube streams.",
+          "I'm especially a fan of a VTuber group called Nijisanji, and I support them a lot."
+        ]
+    },
+    {
+      sentense:
+        [
+          "Big fan of VTuber content, especially streams by Mito Tsukino and Ange Katrina",
+          " Curious about space and technology innovations"
+        ]
+    },
   ],
   links: [
     {
@@ -124,25 +141,13 @@ export default function Home() {
           {user.bio}
         </h1>
         <div className="mt-10 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-          <ul>
-            {user.personalInfo.map((info, index) => (
-              <li key={index}>
-                <strong>{info.label}</strong>: {info.value}
-              </li>
-            ))}
-          </ul>
-          <ul>
-            {user.skills.map((skill, index) => (
-              <li key={index}>
-                <strong>{skill.label}</strong>: {skill.value}
-              </li>
-            ))}
-          </ul>
-          <ul>
-            {user.interests.map((interest, index) => (
-              <li key={index}>{interest}</li>
-            ))}
-          </ul>
+          {user.interests.map((interest, index) => (
+            <ul key={index}>
+              {interest.sentense.map((s, i) => (
+                <li key={i}>{s}</li>
+              ))}
+            </ul>
+          ))}
         </div>
       </div>
       <div className="lg:pl-20">
