@@ -5,12 +5,12 @@ const projects = [
     href: './projects/MicrosoftBingApi',
     imageSrc: 'https://media.licdn.com/dms/image/D4E12AQG-VLYWTLqTBw/article-cover_image-shrink_720_1280/0/1723114682752?e=2147483647&v=beta&t=fvzCJ8dOVMSS1TV-xYkkUvBQ_XNP3qqTY6fw56T9494',
   },
-  {
-    name: 'Google Ads User Data Send',
-    textColor: 'text-red-700',
-    href: './projects/GoogleAdsUserDataSend',
-    imageSrc: 'https://whello.id/wp-content/uploads/2021/03/belajar-google-ads.jpg',
-  },
+  //{
+  //  name: 'Google Ads User Data Send',
+  //  textColor: 'text-red-700',
+  //  href: './projects/GoogleAdsUserDataSend',
+  //  imageSrc: 'https://whello.id/wp-content/uploads/2021/03/belajar-google-ads.jpg',
+  //},
   {
     name: 'In preparation...',
     textColor: 'text-gray-700',
