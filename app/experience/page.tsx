@@ -1,9 +1,10 @@
+import { DateBanner } from "../components/DateBanner";
+
 const articles = [
   //{
   //  title: 'a certain advertising company: Implementing enhanced user data functionality using the Google Ads API.',
   //  date: {
-  //    start: '2024-11-08',
-  //    end: '2025-04-15'
+  //    start: '2024-11-08'
   //  },
   //  description:
   //    'Improved user features in accordance with the company’s policy, and worked closely with the project manager to build the best possible system.',
@@ -15,8 +16,7 @@ const articles = [
   {
     title: 'a certain advertising company: Implementing the Offline Conversion API using the Microsoft Bing API.',
     date: {
-      start: '2024-10-01',
-      end: '2024-11-07'
+      start: '2024-10-01'
     },
     description:
       'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself',
@@ -51,11 +51,14 @@ export default function Experience() {
         </p>
       </header>
       <div className="mt-16 sm:mt-20">
-        <div className="md:border-l md:pl-6 md:border-zinc-700/40">
+        <div className="lg:border-l lg:pl-6 lg:border-zinc-700/40">
           <div className="flex max-w-3xl flex-col space-y-8">
             {articles.map((article) => (
-              <div key={article.title} className="md:grid md:grid-cols-4 md:items-baseline">
-                <div className="md:col-span-3 flex flex-col items-start">
+              <div key={article.title} className="lg:grid lg:grid-cols-4 lg:items-baseline">
+                <time className="mt-1 relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500">
+                  <DateBanner date={new Date(article.date.start)} />
+                </time>
+                <div className="lg:col-span-3 flex flex-col items-start">
                   <h2 className="text-base font-semibold tracking-tight text-zinc-100">{article.title}</h2>
 
                   {article.description && (
@@ -75,15 +78,6 @@ export default function Experience() {
                   )}
 
                 </div>
-                <time className="mt-1 hidden md:block relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500">
-                  {article.date.end && (
-                    <>
-                      {new Date(article.date.end).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}<br />
-                      <span className="mx-2">|</span><br />
-                    </>
-                  )}
-                  {new Date(article.date.start).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}<br />
-                </time>
               </div>
             ))}
           </div>

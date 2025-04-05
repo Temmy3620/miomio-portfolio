@@ -2,11 +2,11 @@ import SkillRadarChart from "../components/SkillRadarChart";
 
 const frontEnd = [
   { subject: 'HTML/CSS', value: 3 },
-  { subject: 'JavaScript', value: 2 },
+  { subject: 'TypeScript', value: 2 },
   { subject: 'React.js', value: 2 },
-  { subject: 'Vue.js', value: 2 },
   { subject: 'Next.js', value: 2 },
-  { subject: 'Nuxt', value: 2 },
+  { subject: 'Vue.js', value: 2 },
+  { subject: 'Nuxt.js', value: 2 },
 ]
 
 const backEnd = [
