@@ -1,4 +1,4 @@
-import SkillRadarChart from "../components/SkillRadarChart";
+import SkillRadarChart from "@/components/SkillRadarChart";
 
 const frontEnd = [
   { subject: 'HTML/CSS', value: 3 },

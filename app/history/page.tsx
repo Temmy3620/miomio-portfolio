@@ -1,4 +1,4 @@
-import { DateBanner } from "../components/DateBanner";
+import { DateBanner } from "@/components/DateBanner";
 
 const articles = [
   //{
