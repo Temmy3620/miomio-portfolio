@@ -118,7 +118,7 @@ const LinkButton: React.FC<{ href: string; icon: React.ReactNode; name: string }
   </li>
 );
 
-export default function Home() {
+export default function Profile() {
   return (
     <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
       <div className="lg:pl-20">

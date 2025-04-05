@@ -13,9 +13,9 @@ const user = {
     '/images/Temmyicon2.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Home', href: '/home' },
-  { name: 'MySkill', href: '/skillset' },
-  { name: 'Experience', href: '/experience' },
+  { name: 'Profile', href: '/profile' },
+  { name: 'Skill', href: '/skillset' },
+  { name: 'History', href: '/history' },
   { name: 'Projects', href: '/projects' }
   //{ name: 'Contact', href: '/contact' }
 ]

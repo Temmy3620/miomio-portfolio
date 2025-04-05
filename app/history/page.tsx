@@ -39,7 +39,7 @@ const articles = [
   }
 ];
 
-export default function Experience() {
+export default function History() {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
