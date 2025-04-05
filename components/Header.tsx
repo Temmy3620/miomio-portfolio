@@ -26,11 +26,18 @@ export default function Header() {
   const user = useSupabaseUser();
   const [dialogOpen, setDialogOpen] = useState(false)
 
-  const handleSignOut = () => {
-    console.log('✅ サインアウト処理を実行')
+  const handleSignOut = async () => {
+    console.log('サインアウト処理を実行')
     setDialogOpen(false)
-    createSupabaseClient().auth.signOut();
-    window.location.href = '/login';
+
+    const { error } = await createSupabaseClient().auth.signOut()
+    if (error) {
+      console.error('サインアウト失敗:', error.message)
+      alert('サインアウトに失敗しました')
+      return
+    }
+
+    window.location.href = '/login'
   }
 
   useEffect(() => {
