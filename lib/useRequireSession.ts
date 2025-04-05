@@ -7,7 +7,6 @@ import type { User } from '@supabase/supabase-js';
 
 export function useRequireSession() {
   const [user, setUser] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -18,12 +17,11 @@ export function useRequireSession() {
       } else {
         setUser(session.user);
       }
-      setLoading(false);
     };
     checkAuth();
   }, [router]);
 
-  return { user, loading };
+  return { user };
 }
 
 export function useSupabaseUser() {

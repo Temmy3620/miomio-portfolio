@@ -5,6 +5,7 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import { createSupabaseClient } from '@/lib/supabaseClient';
 import { useSupabaseUser } from '@/lib/useRequireSession';
+import ConfirmDialog from '@/components/ConfirmDialog'
 
 const baseNavigation = [
   { name: 'Profile', href: '/profile' },
@@ -23,6 +24,14 @@ export default function Header() {
   const pathname = usePathname();
   const [hideHeader, setHideHeader] = useState(false);
   const user = useSupabaseUser();
+  const [dialogOpen, setDialogOpen] = useState(false)
+
+  const handleSignOut = () => {
+    console.log('✅ サインアウト処理を実行')
+    setDialogOpen(false)
+    createSupabaseClient().auth.signOut();
+    window.location.href = '/login';
+  }
 
   useEffect(() => {
     let lastScroll = 0;
@@ -40,6 +49,15 @@ export default function Header() {
   const navigation = isMyPage ? (user === null ? baseNavigation : adminNavigation) : baseNavigation;
   return (
     <div className={`fixed-menu pt-6 transition-all duration-300 ${hideHeader ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+      <ConfirmDialog
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        onConfirm={handleSignOut}
+        title="Sign out"
+        message="Are you sure you want to sign out?"
+        confirmText="Sign out"
+        cancelText="Cancel"
+      />
       <div className="sm:px-8 w-full">
         <div className="mx-auto w-full max-w-7xl lg:px-8">
           <div className="relative px-4 sm:px-8 lg:px-12">
@@ -51,8 +69,7 @@ export default function Header() {
                     <button
                       onClick={user
                         ? async () => {
-                          await createSupabaseClient().auth.signOut();
-                          window.location.href = '/login';
+                          setDialogOpen(true);
                         }
                         : () => {
                           window.location.href = '/login';

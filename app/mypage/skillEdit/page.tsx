@@ -3,9 +3,7 @@
 import { useRequireSession } from '@/lib/useRequireSession';
 
 export default function SkillEdit() {
-  const { user, loading } = useRequireSession();
-
-  if (loading) return <p>認証確認中...</p>;
+  const { user } = useRequireSession();
 
   return (
     <div className="p-4">
