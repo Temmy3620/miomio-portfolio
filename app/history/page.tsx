@@ -1,4 +1,7 @@
+'use client';
+
 import { DateBanner } from "@/components/DateBanner";
+import { motion } from "framer-motion";
 
 const articles = [
   //{
@@ -43,44 +46,86 @@ export default function History() {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
-          Writing about the projects I have been involved in, freelance work, and my career history
-        </h1>
-        <p className="mt-6 text-base text-zinc-400">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+            Writing about the projects I have been involved in, freelance work, and my career history
+          </h1>
+        </motion.div>
+        <motion.p
+          className="mt-6 text-base text-zinc-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.
-        </p>
+        </motion.p>
       </header>
       <div className="mt-16 sm:mt-20">
         <div className="lg:border-l lg:pl-6 lg:border-zinc-700/40">
-          <div className="flex max-w-3xl flex-col space-y-8">
+          <motion.div initial="hidden" animate="visible" className="flex max-w-3xl flex-col space-y-8">
             {articles.map((article) => (
-              <div key={article.title} className="lg:grid lg:grid-cols-4 lg:items-baseline">
-                <time className="mt-1 relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500">
+
+              <motion.div
+                key={article.title}
+                className="lg:grid lg:grid-cols-4 lg:items-baseline"
+                variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
+              >
+                <motion.time
+                  className="mt-1 relative z-10 order-first mb-3 flex items-center text-sm text-zinc-500"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
                   <DateBanner date={new Date(article.date.start)} />
-                </time>
+                </motion.time>
                 <div className="lg:col-span-3 flex flex-col items-start">
-                  <h2 className="text-base font-semibold tracking-tight text-zinc-100">{article.title}</h2>
+                  <motion.h2
+                    className="text-base font-semibold tracking-tight text-zinc-100"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    {article.title}
+                  </motion.h2>
 
                   {article.description && (
-                    <p className="relative z-10 mt-2 text-sm text-zinc-400">
+                    <motion.p
+                      className="relative z-10 mt-2 text-sm text-zinc-400"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.3 }}
+                    >
                       {article.description}
-                    </p>
+                    </motion.p>
                   )}
                   {article.link?.href && (
-                    <a href={article.link.href} className="hover:opacity-100" target="_blank" rel="noopener noreferrer">
+                    <motion.a
+                      href={article.link.href}
+                      className="hover:opacity-100"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                    >
                       <div className="relative z-10 mt-2 flex items-center text-sm font-medium text-teal-500 hover:bg-zinc-500/25 rounded-lg sm:rounded-xl lg:rounded-2xl py-1 px-3">
                         {article.link.label}
                         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="ml-1 h-4 w-4 stroke-current">
-                          <path d="M6.75 5.75 9.25 8l-2.5 2.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
+                          <path d="M6.75 5.75 9.25 8l-2.5 2.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                       </div>
-                    </a>
+                    </motion.a>
                   )}
 
                 </div>
-              </div>
+              </motion.div>
+
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

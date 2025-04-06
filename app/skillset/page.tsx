@@ -1,4 +1,7 @@
+'use client';
+
 import SkillRadarChart from "@/components/SkillRadarChart";
+import { motion } from "framer-motion";
 
 const frontEnd = [
   { subject: 'HTML/CSS', value: 3 },
@@ -31,20 +34,43 @@ export default function SkillSet() {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
-          Writing about my skills as an engineer.
-        </h1>
-        <p className="mt-6 text-base text-zinc-400">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+            Writing about my skills as an engineer.
+          </h1>
+        </motion.div>
+        <motion.p
+          className="mt-6 text-base text-zinc-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.
-        </p>
+        </motion.p>
       </header>
       <div className="mt-16 sm:mt-20">
-        <p className="mt-1 text-base text-zinc-400">
+
+        <motion.p
+          className="mt-1 text-base text-zinc-400"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           I have graphically summarized the skills I have acquired through dedicated practice. While my expertise is broad and general, I have made an effort to improve my skills across a wide range, from frontend to backend development. My strength lies in being an all-rounder capable of adapting to various tasks; however, I am aware of my overall lack of depth and specialization. Moving forward, I plan to increase my involvement in backend development, including cloud-related work, to gradually deepen my expertise.
-        </p>
-        <p className="mt-5 text-base text-zinc-400">
+        </motion.p>
+        <motion.p
+          className="mt-5 text-base text-zinc-400"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           ※ Only technologies I have used in actual work are included.
-        </p>
+        </motion.p>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:grid-cols-3 mx-auto mt-10">
           <SkillRadarChart title="Front end" data={frontEnd} />
           <SkillRadarChart title="Back end" data={backEnd} radarColor="#66cdaa" />

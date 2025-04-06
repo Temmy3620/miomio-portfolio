@@ -1,4 +1,7 @@
+'use client';
+
 import React from "react";
+import { motion } from "framer-motion";
 
 const user = {
   name: "Mio Terasaki",
@@ -105,7 +108,7 @@ const LinkButton: React.FC<{ href: string; icon: React.ReactNode; name: string }
   icon,
   name,
 }) => (
-  <li className="mt-4 flex">
+  <div className="mt-4 flex">
     <a
       target="_blank"
       rel="noopener noreferrer"
@@ -115,7 +118,7 @@ const LinkButton: React.FC<{ href: string; icon: React.ReactNode; name: string }
       {icon}
       <span className="ml-4">Follow on {name}</span>
     </a>
-  </li>
+  </div>
 );
 
 export default function Profile() {
@@ -123,7 +126,7 @@ export default function Profile() {
     <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
       <div className="lg:pl-20">
         <div className="max-w-xs px-2.5 lg:max-w-none">
-          <img
+          <motion.img
             alt={user.name}
             loading="lazy"
             width="800"
@@ -133,29 +136,83 @@ export default function Profile() {
             sizes="(min-width: 1024px) 32rem, 20rem"
             src={user.imageUrl}
             style={{ color: "transparent" }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           />
         </div>
       </div>
       <div className="lg:order-first lg:row-span-2">
-        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-          {user.bio}
-        </h1>
-        <div className="mt-10 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
+            {user.bio}
+          </h1>
+        </motion.div>
+        <motion.div
+          className="mt-10 space-y-7 text-base text-zinc-600 dark:text-zinc-400"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
           {user.interests.map((interest, index) => (
-            <ul key={index}>
+            <motion.ul
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
               {interest.sentense.map((s, i) => (
                 <li key={i}>{s}</li>
               ))}
-            </ul>
+            </motion.ul>
           ))}
-        </div>
+        </motion.div>
       </div>
       <div className="lg:pl-20">
-        <ul role="list">
+
+        <motion.ul
+          role="list"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+        >
           {user.links.map((link, index) => (
-            <LinkButton key={index} href={link.href} icon={link.icon} name={link.name} />
+            <motion.li
+              key={index}
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
+              <LinkButton href={link.href} icon={link.icon} name={link.name} />
+            </motion.li>
           ))}
-          <li className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex">
+          <motion.li
+            className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40 flex"
+            variants={{
+              hidden: { opacity: 0, y: 10 },
+              visible: { opacity: 1, y: 0 },
+            }}
+          >
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -174,8 +231,9 @@ export default function Profile() {
               </svg>
               <span className="ml-4">{user.email}</span>
             </a>
-          </li>
-        </ul>
+          </motion.li>
+        </motion.ul>
+
       </div>
     </div>
   );

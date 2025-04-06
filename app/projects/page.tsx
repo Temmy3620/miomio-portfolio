@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from "framer-motion";
+
 const projects = [
   {
     name: 'Microsoft Send OfflineConvertions',
@@ -41,17 +45,48 @@ export default function Projects() {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
-          Creations from my engineering efforts and things born out of necessity.
-        </h1>
-        <p className="mt-6 text-base text-zinc-400">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+            Creations from my engineering efforts and things born out of necessity.
+          </h1>
+        </motion.div>
+        <motion.p
+          className="mt-6 text-base text-zinc-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.
-        </p>
+        </motion.p>
       </header>
       <div className="mt-16 sm:mt-20">
-        <ul role="list" className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.ul
+          role="list"
+          className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2 lg:grid-cols-3"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.15,
+              },
+            },
+          }}
+        >
           {projects.map((project, index) => (
-            <li key={index} className="group relative flex flex-col items-start">
+            <motion.li
+              key={index}
+              className="group relative flex flex-col items-start"
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 1, y: 0 },
+              }}
+            >
               <a href={project.href} className="group">
                 <div className="md:w-64 md:h-40 overflow-hidden rounded-2xl bg-gray-200 relative">
                   <img
@@ -64,9 +99,9 @@ export default function Projects() {
                   </div>
                 </div>
               </a>
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </div>
     </div>
   );
