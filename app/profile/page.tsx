@@ -1,10 +1,9 @@
+'use client'
+
 import React from "react";
+import { useProfile } from "@/hooks/useProfile";
 
 const user = {
-  name: "Mio Terasaki",
-  imageUrl: "/images/Temmyicon.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-  email: "me512papiko512@gmail.com",
-  bio: "I’m Temmy. I currently work as a Freelance Web Developer while traveling the world.",
   interests: [
     {
       sentense:
@@ -119,26 +118,26 @@ const LinkButton: React.FC<{ href: string; icon: React.ReactNode; name: string }
 );
 
 export default function Profile() {
+  const profile = useProfile();
   return (
     <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
       <div className="lg:pl-20">
         <div className="max-w-xs px-2.5 lg:max-w-none">
           <img
-            alt={user.name}
             loading="lazy"
             width="800"
             height="800"
             decoding="async"
             className="aspect-square rotate-3 rounded-2xl object-cover bg-zinc-800"
             sizes="(min-width: 1024px) 32rem, 20rem"
-            src={user.imageUrl}
+            src={profile?.image_url ?? 'Loading...'}
             style={{ color: "transparent" }}
           />
         </div>
       </div>
       <div className="lg:order-first lg:row-span-2">
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-          {user.bio}
+          {profile?.title ?? 'Loading...'}
         </h1>
         <div className="mt-10 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
           {user.interests.map((interest, index) => (
@@ -160,7 +159,7 @@ export default function Profile() {
               target="_blank"
               rel="noopener noreferrer"
               className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
-              href={`mailto:${user.email}`}
+              href={`mailto:${profile?.email ?? 'Loading...'}`}
             >
               <svg
                 viewBox="0 0 24 24"
@@ -172,7 +171,7 @@ export default function Profile() {
                   d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
                 ></path>
               </svg>
-              <span className="ml-4">{user.email}</span>
+              <span className="ml-4">{profile?.email ?? 'Loading....'}</span>
             </a>
           </li>
         </ul>
