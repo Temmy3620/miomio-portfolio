@@ -1,5 +1,5 @@
 'use client';
-import { Field, Fieldset, Input, Label } from '@headlessui/react';
+import { Field, Fieldset, Input } from '@headlessui/react';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';

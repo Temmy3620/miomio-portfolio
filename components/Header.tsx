@@ -5,7 +5,7 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import { createSupabaseClient } from '@/lib/supabaseClient';
 import { useSupabaseUser } from '@/lib/useRequireSession';
-import ConfirmDialog from '@/components/ConfirmDialog'
+import ConfirmDialog from '@/components/ConfirmDialog';
 
 const baseNavigation = [
   { name: 'Profile', href: '/profile' },

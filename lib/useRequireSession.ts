@@ -6,7 +6,7 @@ import { createSupabaseClient } from '@/lib/supabaseClient';
 import type { User } from '@supabase/supabase-js';
 
 export function useRequireSession() {
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const router = useRouter();
 
   useEffect(() => {
