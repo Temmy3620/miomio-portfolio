@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useEffect, useState } from 'react';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { createSupabaseClient } from '@/lib/supabaseClient';
 import { useSupabaseUser } from '@/lib/useRequireSession';
 import ConfirmDialog from '@/components/ConfirmDialog';
@@ -182,10 +183,12 @@ export default function Header() {
                         return next
                       })
                     }}
-                    className="flex items-center rounded-full px-3 py-2 text-sm font-medium shadow-lg ring-1 backdrop-blur bg-zinc-100 text-zinc-800 ring-zinc-900/5 hover:ring-zinc-900/20 dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+                    className="flex h-9 w-9 items-center justify-center rounded-full shadow-lg ring-1 backdrop-blur bg-zinc-800/90 text-zinc-200 ring-white/10 hover:ring-white/20 dark:bg-zinc-100 dark:text-zinc-800 dark:ring-zinc-900/5 dark:hover:ring-zinc-900/20"
                     title={theme === 'dark' ? 'Switch to Light' : 'Switch to Dark'}
                   >
-                    {theme === 'dark' ? 'Light' : 'Dark'}
+                    {/* Show sun in light mode, moon in dark mode */}
+                    <SunIcon aria-hidden className="h-5 w-5 text-zinc-300 dark:hidden" />
+                    <MoonIcon aria-hidden className="h-5 w-5 hidden dark:inline-block text-zinc-500" />
                   </button>
                 </div>
                 {/* Theme Toggle (Mobile) */}
@@ -203,10 +206,11 @@ export default function Header() {
                         return next
                       })
                     }}
-                    className="flex items-center rounded-full px-3 py-2 text-sm font-medium shadow-lg ring-1 backdrop-blur bg-zinc-100 text-zinc-800 ring-zinc-900/5 hover:ring-zinc-900/20 dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20"
+                    className="flex h-9 w-9 items-center justify-center rounded-full shadow-lg ring-1 backdrop-blur bg-zinc-800/90 text-zinc-200 ring-white/10 hover:ring-white/20 dark:bg-zinc-100 dark:text-zinc-800 dark:ring-zinc-900/5 dark:hover:ring-zinc-900/20"
                     title={theme === 'dark' ? 'Switch to Light' : 'Switch to Dark'}
                   >
-                    {theme === 'dark' ? 'Light' : 'Dark'}
+                    <SunIcon aria-hidden className="h-5 w-5 text-zinc-300 dark:hidden" />
+                    <MoonIcon aria-hidden className="h-5 w-5 hidden dark:inline-block text-zinc-500" />
                   </button>
                 </div>
               </div>
