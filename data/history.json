@@ -1,0 +1,30 @@
+[
+  {
+    "title": "a certain advertising company: Implementing the Offline Conversion API using the Microsoft Bing API.",
+    "titleJa": "某広告会社様：Microsoft Bing API を用いた Offline Conversion API の実装",
+    "date": {
+      "start": "2024-10-01"
+    },
+    "description": "When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself",
+    "descriptionJa": "Microsoft Advertising に表示された Bing 広告のクリックを起点に、電話発信などのオフラインコンバージョンを計測する処理を構築しました。Microsoft Bing API を用いて Offline Conversion API へデータ送信を行っています。",
+    "link": {
+      "label": "Microsoft Bing API Project",
+      "labelJa": "Microsoft Bing API プロジェクト",
+      "href": "./projects/MicrosoftBingApi"
+    }
+  },
+  {
+    "title": "I have been contracted by a certain advertising company. for outsourced work.",
+    "titleJa": "某広告会社様より業務委託契約を受託",
+    "date": {
+      "start": "2024-10-01"
+    }
+  },
+  {
+    "title": "I’m starting my own business and beginning my career as a freelance engineer",
+    "titleJa": "個人事業を開業し、フリーランスエンジニアとして活動開始",
+    "date": {
+      "start": "2024-09-30"
+    }
+  }
+]
