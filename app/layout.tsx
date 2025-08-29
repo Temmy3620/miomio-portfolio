@@ -1,15 +1,19 @@
 import "./globals.css";
 import Script from 'next/script';
+import { cookies } from 'next/headers';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get('theme')?.value as 'light' | 'dark' | undefined
+  const htmlClass = themeCookie === 'dark' ? 'dark' : undefined
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={htmlClass} suppressHydrationWarning>
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
           {`
