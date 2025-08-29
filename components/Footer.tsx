@@ -2,23 +2,25 @@
 
 import { usePathname } from 'next/navigation';
 import { useSupabaseUser } from '@/lib/useRequireSession';
+import { useLocale } from '@/components/LocaleProvider';
 
 const baseNavigation = [
-  { name: 'Profile', href: '/profile' },
-  { name: 'Skill', href: '/skillset' },
-  { name: 'History', href: '/history' },
-  { name: 'Projects', href: '/projects' }
+  { key: 'profile', nameEn: 'Profile', nameJa: 'プロフィール', href: '/profile' },
+  { key: 'skill', nameEn: 'Skill', nameJa: 'スキル', href: '/skillset' },
+  { key: 'history', nameEn: 'History', nameJa: '経歴', href: '/history' },
+  { key: 'projects', nameEn: 'Projects', nameJa: 'プロジェクト', href: '/projects' }
 ];
 
 const adminNavigation = [
-  { name: 'ProfileEdit', href: '/mypage/profileEdit' },
-  { name: 'SkillEdit', href: '/mypage/skillEdit' },
-  { name: 'HistoryEdit', href: '/mypage/historyEdit' }
+  { key: 'profileEdit', nameEn: 'ProfileEdit', nameJa: 'プロフィール編集', href: '/mypage/profileEdit' },
+  { key: 'skillEdit', nameEn: 'SkillEdit', nameJa: 'スキル編集', href: '/mypage/skillEdit' },
+  { key: 'historyEdit', nameEn: 'HistoryEdit', nameJa: '経歴編集', href: '/mypage/historyEdit' }
 ];
 
 export default function Footer() {
   const pathname = usePathname();
   const user = useSupabaseUser();
+  const { locale } = useLocale();
 
   const isMyPage = pathname.startsWith('/mypage');
   const navigation = isMyPage ? (user === null ? baseNavigation : adminNavigation) : baseNavigation;
@@ -33,17 +35,16 @@ export default function Footer() {
                   <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 text-sm font-medium text-zinc-700 dark:text-zinc-200">
                     {navigation.map((item) => (
                       <a
-                        key={item.name}
+                        key={item.key}
                         href={item.href}
-                        className={`transition hover:text-teal-500 dark:hover:text-teal-400 ${pathname === item.href ? 'text-teal-600 dark:text-teal-400' : ''
-                          }`}
+                        className={`transition hover:text-teal-500 dark:hover:text-teal-400 ${pathname === item.href ? 'text-teal-600 dark:text-teal-400' : ''}`}
                       >
-                        {item.name}
+                        {locale === 'ja' ? item.nameJa : item.nameEn}
                       </a>
                     ))}
                   </div>
                   <p className="text-sm text-zinc-600 dark:text-zinc-500">
-                    © 2024 Mio Terasaki. All rights reserved.
+                    {locale === 'ja' ? '© 2024 Mio Terasaki. すべての権利を保有します。' : '© 2024 Mio Terasaki. All rights reserved.'}
                   </p>
                 </div>
               </div>

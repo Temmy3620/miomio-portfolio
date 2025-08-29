@@ -1,11 +1,17 @@
+"use client";
+
+import { useLocale } from '@/components/LocaleProvider';
+
 interface DateBannerProps {
   date?: Date
   className?: string
 }
 
 export function DateBanner({ date = new Date(), className = "" }: DateBannerProps) {
-  // Format the date as "Month Day, Year" in a deterministic timezone to avoid hydration mismatch
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
+  const { locale } = useLocale();
+  const fmtLocale = locale === 'ja' ? 'ja-JP' : 'en-US';
+  // Deterministic timezone to avoid hydration mismatch
+  const formattedDate = new Intl.DateTimeFormat(fmtLocale, {
     year: "numeric",
     month: "long",
     day: "numeric",

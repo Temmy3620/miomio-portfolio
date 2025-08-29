@@ -2,48 +2,78 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useLocale } from '@/components/LocaleProvider';
 
-const user = {
+const userBase = {
   name: "Mio Terasaki",
   imageUrl: "/images/Temmyicon.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   email: "me512papiko512@gmail.com",
-  bio: "I’m Temmy. I currently work as a Freelance Web Developer while traveling the world.",
-  interests: [
+  bioEn: "I’m Temmy. I currently work as a Freelance Web Developer while traveling the world.",
+  bioJa: "Temmyです。フリーランスのWebエンジニアとして、世界を旅しながら活動しています。",
+  interestsEn: [
     {
-      sentense:
-        [
-          "I’m exploring ways to work freely while traveling the world.",
-          "Working in both Japan and abroad has shown me how different cultures view work, and it’s been a great source of inspiration.",
-          "I’m always thinking about what kind of life truly brings happiness."
-        ]
+      sentense: [
+        "I’m exploring ways to work freely while traveling the world.",
+        "Working in both Japan and abroad has shown me how different cultures view work, and it’s been a great source of inspiration.",
+        "I’m always thinking about what kind of life truly brings happiness.",
+      ],
     },
     {
-      sentense:
-        [
-          "I’m a 25-year-old freelance web engineer from Toyama, Japan.",
-          "After graduating and moving to Tokyo, I worked as a company engineer for about three years before going independent."
-        ]
+      sentense: [
+        "I’m a 25-year-old freelance web engineer from Toyama, Japan.",
+        "After graduating and moving to Tokyo, I worked as a company engineer for about three years before going independent.",
+      ],
     },
     {
-      sentense:
-        [
-          "These days, I spend a lot of time abroad, which often makes me crave fish.",
-          "I can list tons of foods I dislike, but I don’t really have a favorite."
-        ]
+      sentense: [
+        "These days, I spend a lot of time abroad, which often makes me crave fish.",
+        "I can list tons of foods I dislike, but I don’t really have a favorite.",
+      ],
     },
     {
-      sentense:
-        [
-          "My hobby is watching YouTube streams.",
-          "I'm especially a fan of a VTuber group called Nijisanji, and I support them a lot."
-        ]
+      sentense: [
+        "My hobby is watching YouTube streams.",
+        "I'm especially a fan of a VTuber group called Nijisanji, and I support them a lot.",
+      ],
     },
     {
-      sentense:
-        [
-          "Big fan of VTuber content, especially streams by Mito Tsukino and Ange Katrina",
-          " Curious about space and technology innovations"
-        ]
+      sentense: [
+        "Big fan of VTuber content, especially streams by Mito Tsukino and Ange Katrina",
+        " Curious about space and technology innovations",
+      ],
+    },
+  ],
+  interestsJa: [
+    {
+      sentense: [
+        "世界を旅しながら自由に働ける方法を探求しています。",
+        "日本と海外の両方で働く経験から、仕事に対する価値観の違いを肌で感じ、良い刺激になっています。",
+        "本当に幸せになれる生き方について、いつも考えています。",
+      ],
+    },
+    {
+      sentense: [
+        "富山県出身、25歳のフリーランスWebエンジニアです。",
+        "卒業後に上京し、企業のエンジニアとして約3年間勤務したのち独立しました。",
+      ],
+    },
+    {
+      sentense: [
+        "最近は海外にいる時間が長く、よく魚が恋しくなります。",
+        "苦手な食べ物はたくさん挙げられますが、特に好きなものはあまりありません。",
+      ],
+    },
+    {
+      sentense: [
+        "趣味はYouTube配信の視聴です。",
+        "特ににじさんじの配信が好きで、よく応援しています。",
+      ],
+    },
+    {
+      sentense: [
+        "VTuberコンテンツが大好きで、月ノ美兎さんやアンジュ・カトリーナさんの配信をよく観ています",
+        "宇宙やテクノロジーの進歩に興味があります",
+      ],
     },
   ],
   links: [
@@ -122,6 +152,15 @@ const LinkButton: React.FC<{ href: string; icon: React.ReactNode; name: string }
 );
 
 export default function Profile() {
+  const { locale } = useLocale();
+  const user = {
+    name: userBase.name,
+    imageUrl: userBase.imageUrl,
+    email: userBase.email,
+    bio: locale === 'ja' ? userBase.bioJa : userBase.bioEn,
+    interests: locale === 'ja' ? userBase.interestsJa : userBase.interestsEn,
+    links: userBase.links,
+  };
   return (
     <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
       <div className="lg:pl-20">

@@ -2,6 +2,7 @@
 
 import { DateBanner } from "@/components/DateBanner";
 import { motion } from "framer-motion";
+import { useLocale } from '@/components/LocaleProvider';
 
 const articles = [
   //{
@@ -18,24 +19,30 @@ const articles = [
   //},
   {
     title: 'a certain advertising company: Implementing the Offline Conversion API using the Microsoft Bing API.',
+    titleJa: '某広告会社様：Microsoft Bing API を用いた Offline Conversion API の実装',
     date: {
       start: '2024-10-01'
     },
     description:
       'When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself',
+    descriptionJa:
+      'Microsoft Advertising に表示された Bing 広告のクリックを起点に、電話発信などのオフラインコンバージョンを計測する処理を構築しました。Microsoft Bing API を用いて Offline Conversion API へデータ送信を行っています。',
     link: {
       label: 'Microsoft Bing API Project',
+      labelJa: 'Microsoft Bing API プロジェクト',
       href: './projects/MicrosoftBingApi'
     },
   },
   {
     title: 'I have been contracted by a certain advertising company. for outsourced work.',
+    titleJa: '某広告会社様より業務委託契約を受託',
     date: {
       start: '2024-10-01'
     },
   },
   {
     title: 'I’m starting my own business and beginning my career as a freelance engineer',
+    titleJa: '個人事業を開業し、フリーランスエンジニアとして活動開始',
     date: {
       start: '2024-09-30'
     },
@@ -43,6 +50,15 @@ const articles = [
 ];
 
 export default function History() {
+  const { locale } = useLocale();
+  const t = {
+    title: locale === 'ja'
+      ? '携わってきたプロジェクト、受託案件、これまでの経歴について'
+      : 'Writing about the projects I have been involved in, freelance work, and my career history',
+    lead: locale === 'ja'
+      ? '取り組んできた内容を時系列でまとめています。'
+      : 'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
+  };
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
@@ -52,7 +68,7 @@ export default function History() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-900 dark:text-zinc-100">
-            Writing about the projects I have been involved in, freelance work, and my career history
+            {t.title}
           </h1>
         </motion.div>
         <motion.p
@@ -61,7 +77,7 @@ export default function History() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.
+          {t.lead}
         </motion.p>
       </header>
       <div className="mt-16 sm:mt-20">
@@ -89,7 +105,7 @@ export default function History() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    {article.title}
+                    {locale === 'ja' ? (article as any).titleJa ?? article.title : article.title}
                   </motion.h2>
 
                   {article.description && (
@@ -99,7 +115,7 @@ export default function History() {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}
                     >
-                      {article.description}
+                      {locale === 'ja' ? (article as any).descriptionJa ?? article.description : article.description}
                     </motion.p>
                   )}
                   {article.link?.href && (
@@ -113,7 +129,7 @@ export default function History() {
                       transition={{ duration: 0.5, delay: 0.4 }}
                     >
                       <div className="relative z-10 mt-2 flex items-center text-sm font-medium text-teal-500 hover:bg-zinc-500/25 rounded-lg sm:rounded-xl lg:rounded-2xl py-1 px-3">
-                        {article.link.label}
+                        {locale === 'ja' ? (article.link as any).labelJa ?? article.link.label : article.link.label}
                         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="ml-1 h-4 w-4 stroke-current">
                           <path d="M6.75 5.75 9.25 8l-2.5 2.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>

@@ -6,19 +6,20 @@ import { useEffect, useState } from 'react';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { createSupabaseClient } from '@/lib/supabaseClient';
 import { useSupabaseUser } from '@/lib/useRequireSession';
+import { useLocale } from '@/components/LocaleProvider';
 import ConfirmDialog from '@/components/ConfirmDialog';
 
 const baseNavigation = [
-  { name: 'Profile', href: '/profile' },
-  { name: 'Skill', href: '/skillset' },
-  { name: 'History', href: '/history' },
-  { name: 'Projects', href: '/projects' }
+  { key: 'profile', nameEn: 'Profile', nameJa: 'プロフィール', href: '/profile' },
+  { key: 'skill', nameEn: 'Skill', nameJa: 'スキル', href: '/skillset' },
+  { key: 'history', nameEn: 'History', nameJa: '経歴', href: '/history' },
+  { key: 'projects', nameEn: 'Projects', nameJa: 'プロジェクト', href: '/projects' }
 ];
 
 const adminNavigation = [
-  { name: 'ProfileEdit', href: '/mypage/profileEdit' },
-  { name: 'SkillEdit', href: '/mypage/skillEdit' },
-  { name: 'HistoryEdit', href: '/mypage/historyEdit' }
+  { key: 'profileEdit', nameEn: 'ProfileEdit', nameJa: 'プロフィール編集', href: '/mypage/profileEdit' },
+  { key: 'skillEdit', nameEn: 'SkillEdit', nameJa: 'スキル編集', href: '/mypage/skillEdit' },
+  { key: 'historyEdit', nameEn: 'HistoryEdit', nameJa: '経歴編集', href: '/mypage/historyEdit' }
 ];
 
 export default function Header() {
@@ -27,6 +28,7 @@ export default function Header() {
   const user = useSupabaseUser();
   const [dialogOpen, setDialogOpen] = useState(false)
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null)
+  const { locale, setLocale } = useLocale();
 
   // Initialize and apply theme once mounted
   useEffect(() => {
@@ -78,10 +80,10 @@ export default function Header() {
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
         onConfirm={handleSignOut}
-        title="Sign out"
-        message="Are you sure you want to sign out?"
-        confirmText="Sign out"
-        cancelText="Cancel"
+        title={locale === 'ja' ? 'サインアウト' : 'Sign out'}
+        message={locale === 'ja' ? '本当にサインアウトしますか？' : 'Are you sure you want to sign out?'}
+        confirmText={locale === 'ja' ? 'サインアウト' : 'Sign out'}
+        cancelText={locale === 'ja' ? 'キャンセル' : 'Cancel'}
       />
       <div className="sm:px-8 w-full">
         <div className="mx-auto w-full max-w-7xl lg:px-8">
@@ -101,7 +103,7 @@ export default function Header() {
                         }
                       }
                       className="pointer-events-auto"
-                      aria-label="Sign out"
+                      aria-label={locale === 'ja' ? 'サインアウト' : 'Sign out'}
                     >
                       <img
                         alt=""
@@ -120,7 +122,7 @@ export default function Header() {
                 <div className="flex flex-1 justify-end md:justify-center">
                   <Popover className="relative md:hidden">
                     <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
-                      Menu
+                      {locale === 'ja' ? 'メニュー' : 'Menu'}
                       <svg
                         viewBox="0 0 8 6"
                         aria-hidden="true"
@@ -136,12 +138,12 @@ export default function Header() {
                       <nav className="">
                         <ul className="-my-2 divide-y text-base divide-zinc-900/10 text-zinc-700 dark:divide-zinc-100/5 dark:text-zinc-300">
                           {navigation.map((item) => (
-                            <li key={item.name}>
+                            <li key={item.key}>
                               <a
                                 href={item.href} className={`block py-2 hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-400' : ''}`}
                                 aria-current={pathname.startsWith(item.href) ? 'page' : undefined}
                               >
-                                {item.name}
+                                {locale === 'ja' ? item.nameJa : item.nameEn}
                               </a>
                             </li>
                           ))}
@@ -154,14 +156,14 @@ export default function Header() {
                 <nav className="pointer-events-auto hidden md:block">
                   <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
                     {navigation.map((item) => (
-                      <li key={item.name}>
+                      <li key={item.key}>
                         <a
                           className={`relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-500 dark:text-teal-400' : ''}`}
-                          key={item.name}
+                          key={item.key}
                           href={item.href}
                           aria-current={pathname === item.href ? 'page' : undefined}
                         >
-                          {item.name}
+                          {locale === 'ja' ? item.nameJa : item.nameEn}
                           {pathname.startsWith(item.href) && (
                             <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0"></span>
                           )}
@@ -170,8 +172,28 @@ export default function Header() {
                     ))}
                   </ul>
                 </nav>
-                {/* Theme Toggle (Right) */}
-                <div className="flex justify-end md:flex-1">
+                {/* Theme + Language Toggles (Right) */}
+                <div className="flex items-center gap-2 justify-end md:flex-1">
+                  {/* Language Toggle */}
+                  <div className="pointer-events-auto">
+                    <div className="rounded-full bg-white/90 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
+                      <button
+                        type="button"
+                        className={`px-3 py-2 text-sm font-medium ${locale === 'en' ? 'text-teal-600 dark:text-teal-400' : 'text-zinc-700 dark:text-zinc-300'} hover:text-teal-600 dark:hover:text-teal-400`}
+                        onClick={() => setLocale('en')}
+                      >
+                        English
+                      </button>
+                      <span className="text-zinc-300 dark:text-zinc-600">|</span>
+                      <button
+                        type="button"
+                        className={`px-3 py-2 text-sm font-medium ${locale === 'ja' ? 'text-teal-600 dark:text-teal-400' : 'text-zinc-700 dark:text-zinc-300'} hover:text-teal-600 dark:hover:text-teal-400`}
+                        onClick={() => setLocale('ja')}
+                      >
+                        日本語
+                      </button>
+                    </div>
+                  </div>
                   <div className="pointer-events-auto">
                     <button
                       type="button"

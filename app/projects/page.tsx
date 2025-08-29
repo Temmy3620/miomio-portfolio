@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
+import { useLocale } from '@/components/LocaleProvider';
 
 const projects = [
   {
@@ -42,6 +43,15 @@ const projects = [
 ];
 
 export default function Projects() {
+  const { locale } = useLocale();
+  const t = {
+    title: locale === 'ja'
+      ? 'エンジニアとして取り組んできた制作物や、必要から生まれたプロジェクト'
+      : 'Creations from my engineering efforts and things born out of necessity.',
+    lead: locale === 'ja'
+      ? 'これまで手がけたプロジェクトの一部を紹介します。多くはオープンソース化されています。気になるものがあれば、ぜひコードをご覧いただき、改善アイデアがあればコントリビュートしてください。'
+      : 'I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.',
+  };
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
@@ -51,7 +61,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-900 dark:text-zinc-100">
-            Creations from my engineering efforts and things born out of necessity.
+            {t.title}
           </h1>
         </motion.div>
         <motion.p
@@ -60,7 +70,7 @@ export default function Projects() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.
+          {t.lead}
         </motion.p>
       </header>
       <div className="mt-16 sm:mt-20">
@@ -95,7 +105,7 @@ export default function Projects() {
                     className="h-full w-full object-cover opacity-40 transition-opacity duration-250 group-hover:opacity-75"
                   />
                   <div className="absolute inset-0 flex items-end justify-start transition-opacity duration-250 opacity-100 group-hover:opacity-10">
-                    <p className={`text-xl font-bold p-3 ${project.textColor}`}>{project.name}</p>
+                    <p className={`text-xl font-bold p-3 ${project.textColor}`}>{project.name === 'In preparation...' ? (locale === 'ja' ? '準備中...' : 'In preparation...') : project.name}</p>
                   </div>
                 </div>
               </a>

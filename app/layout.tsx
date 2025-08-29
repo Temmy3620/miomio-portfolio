@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { cookies } from 'next/headers';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { LocaleProvider } from '@/components/LocaleProvider';
 
 export default async function RootLayout({
   children,
@@ -11,9 +12,10 @@ export default async function RootLayout({
 }>) {
   const cookieStore = await cookies();
   const themeCookie = cookieStore.get('theme')?.value as 'light' | 'dark' | undefined
+  const localeCookie = cookieStore.get('locale')?.value as 'en' | 'ja' | undefined
   const htmlClass = themeCookie === 'dark' ? 'dark' : undefined
   return (
-    <html lang="en" className={htmlClass} suppressHydrationWarning>
+    <html lang={localeCookie === 'ja' ? 'ja' : 'en'} className={htmlClass} suppressHydrationWarning>
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
           {`
@@ -40,26 +42,28 @@ export default async function RootLayout({
         </Script>
       </head>
       <body className="flex h-full bg-zinc-100 text-zinc-900 dark:bg-black dark:text-zinc-200">
-        <div className="flex w-full">
-          <div className="fixed inset-0 flex justify-center sm:px-8">
-            <div className="flex w-full max-w-7xl lg:px-8">
-              <div className="w-full bg-white ring-1 ring-zinc-900/10 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
+        <LocaleProvider initialLocale={localeCookie}>
+          <div className="flex w-full">
+            <div className="fixed inset-0 flex justify-center sm:px-8">
+              <div className="flex w-full max-w-7xl lg:px-8">
+                <div className="w-full bg-white ring-1 ring-zinc-900/10 dark:bg-zinc-900 dark:ring-zinc-300/20"></div>
+              </div>
             </div>
-          </div>
-          <div className="relative flex w-full flex-col">
-            <Header />
-            <main className="flex-auto">
-              <div className="sm:px-8 mt-32 sm:mt-32">
-                <div className="mx-auto w-full max-w-7xl lg:px-8">
-                  <div className="relative px-4 sm:px-8 lg:px-12">
-                    <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
+            <div className="relative flex w-full flex-col">
+              <Header />
+              <main className="flex-auto">
+                <div className="sm:px-8 mt-32 sm:mt-32">
+                  <div className="mx-auto w-full max-w-7xl lg:px-8">
+                    <div className="relative px-4 sm:px-8 lg:px-12">
+                      <div className="mx-auto max-w-2xl lg:max-w-5xl">{children}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </main>
-            <Footer />
+              </main>
+              <Footer />
+            </div>
           </div>
-        </div>
+        </LocaleProvider>
       </body>
     </html >
   );
