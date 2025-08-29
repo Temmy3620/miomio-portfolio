@@ -9,6 +9,7 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { TickItem } from 'recharts/types/util/types'
+import { useEffect, useState } from 'react'
 
 const defaltData = [
   {
@@ -55,6 +56,18 @@ interface CustomTickProps {
 
 
 export default function SkillRadarChart({ title, data, radarColor }: SkillRadarChartProps) {
+  const [isDark, setIsDark] = useState(false)
+
+  useEffect(() => {
+    const root = document.documentElement
+    const update = () => setIsDark(root.classList.contains('dark'))
+    update()
+    const observer = new MutationObserver(update)
+    observer.observe(root, { attributes: true, attributeFilter: ['class'] })
+    return () => observer.disconnect()
+  }, [])
+
+  const strokeColor = isDark ? '#FFFFFF' : '#F5F5F5'
   return (
     <div className="w-full max-w-xl mx-auto p-1">
       <h2 className="text-xl font-semibold mb-4 text-center text-zinc-600 dark:text-zinc-300">{title || 'Skill Readar'}</h2>
@@ -81,7 +94,7 @@ export default function SkillRadarChart({ title, data, radarColor }: SkillRadarC
             <Radar
               name="Skills"
               dataKey="value"
-              stroke="#ffffff"
+              stroke={strokeColor}
               fill={radarColor || "#FCA5A5"}
               fillOpacity={0.4}
             />

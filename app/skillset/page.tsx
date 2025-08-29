@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { useLocale } from '@/components/LocaleProvider';
 
 const frontEnd = [
-  { subject: 'HTML/CSS', value: 3 },
-  { subject: 'TypeScript', value: 2 },
-  { subject: 'React.js', value: 2 },
-  { subject: 'Next.js', value: 2 },
+  { subject: 'JavaScript', value: 4 },
+  { subject: 'TypeScript', value: 3 },
+  { subject: 'React.js', value: 3 },
+  { subject: 'Next.js', value: 3 },
   { subject: 'Vue.js', value: 2 },
   { subject: 'Nuxt.js', value: 2 },
 ]
@@ -26,9 +26,9 @@ const DevOps = [
   { subject: 'AWS', value: 4 },
   { subject: 'Docker', value: 3 },
   { subject: 'GitHub', value: 4 },
-  { subject: 'GCP', value: 2 },
+  { subject: 'GCP', value: 3 },
   { subject: 'Azure', value: 1 },
-  { subject: 'PHPUnit', value: 2.5 },
+  { subject: 'PHPUnit', value: 3 },
 ]
 
 export default function SkillSet() {
@@ -42,8 +42,8 @@ export default function SkillSet() {
       ? 'これまでの学習や実務で身につけたスキルをグラフで整理しました。フロントエンドからバックエンドまで幅広く対応できるオールラウンダーとして、分野横断での改善に取り組んでいます。今後はとくにバックエンドやクラウド領域の比重を高め、専門性を深めていく予定です。'
       : 'I have graphically summarized the skills I have acquired through dedicated practice. While my expertise is broad and general, I have made an effort to improve my skills across a wide range, from frontend to backend development. My strength lies in being an all-rounder capable of adapting to various tasks; however, I am aware of my overall lack of depth and specialization. Moving forward, I plan to increase my involvement in backend development, including cloud-related work, to gradually deepen my expertise.',
     descNote: locale === 'ja' ? '※ 実務で使用した技術のみを記載しています。' : '※ Only technologies I have used in actual work are included.',
-    front: locale === 'ja' ? 'フロントエンド' : 'Front end',
-    back: locale === 'ja' ? 'バックエンド' : 'Back end',
+    front: 'Front end',
+    back: 'Back end',
     guide: locale === 'ja' ? 'スキルレベルの目安' : 'Skill Level Guide',
     level: locale === 'ja' ? 'レベル' : 'Level',
     desc: locale === 'ja' ? '説明' : 'Description',
@@ -97,7 +97,7 @@ export default function SkillSet() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:grid-cols-3 mx-auto mt-10">
           <SkillRadarChart title={t.front} data={frontEnd} />
           <SkillRadarChart title={t.back} data={backEnd} radarColor="#66cdaa" />
-          <SkillRadarChart title={t.devops} data={DevOps} radarColor="#ffffe0" />
+          <SkillRadarChart title={t.devops} data={DevOps} radarColor="#FAFAD2" />
         </div>
         <div className="mt-10">
           <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-300">{t.guide}</h2>
