@@ -39,12 +39,12 @@ export default function SkillSet() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-900 dark:text-zinc-100">
             Writing about my skills as an engineer.
           </h1>
         </motion.div>
         <motion.p
-          className="mt-6 text-base text-zinc-400"
+          className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -55,7 +55,7 @@ export default function SkillSet() {
       <div className="mt-16 sm:mt-20">
 
         <motion.p
-          className="mt-1 text-base text-zinc-400"
+          className="mt-1 text-base text-zinc-600 dark:text-zinc-400"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -63,7 +63,7 @@ export default function SkillSet() {
           I have graphically summarized the skills I have acquired through dedicated practice. While my expertise is broad and general, I have made an effort to improve my skills across a wide range, from frontend to backend development. My strength lies in being an all-rounder capable of adapting to various tasks; however, I am aware of my overall lack of depth and specialization. Moving forward, I plan to increase my involvement in backend development, including cloud-related work, to gradually deepen my expertise.
         </motion.p>
         <motion.p
-          className="mt-5 text-base text-zinc-400"
+          className="mt-5 text-base text-zinc-600 dark:text-zinc-400"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -77,34 +77,34 @@ export default function SkillSet() {
           <SkillRadarChart title="DevOps" data={DevOps} radarColor="#ffffe0" />
         </div>
         <div className="mt-10">
-          <h2 className="text-xl font-semibold mb-4 text-zinc-300">Skill Level Guide</h2>
-          <p className="my-1 text-base text-zinc-400">
+          <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-300">Skill Level Guide</h2>
+          <p className="my-1 text-base text-zinc-600 dark:text-zinc-400">
             The following is a guide to understanding the charts above.
           </p>
           <div className="overflow-x-auto">
-            <table className="min-w-full text-left border border-zinc-700 text-zinc-400">
-              <thead className="bg-zinc-800">
+            <table className="min-w-full text-left border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-400">
+              <thead className="bg-zinc-100 dark:bg-zinc-800">
                 <tr>
-                  <th className="py-2 px-4 border-b border-zinc-700">Level</th>
-                  <th className="py-2 px-4 border-b border-zinc-700">Description</th>
+                  <th className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">Level</th>
+                  <th className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">Description</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="py-2 px-4 border-b border-zinc-700">1</td>
-                  <td className="py-2 px-4 border-b border-zinc-700">Lightly used / experimental level</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">1</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">Lightly used / experimental level</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-zinc-700">2</td>
-                  <td className="py-2 px-4 border-b border-zinc-700">Several months of practical use, still room to improve</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">2</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">Several months of practical use, still room to improve</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-zinc-700">3</td>
-                  <td className="py-2 px-4 border-b border-zinc-700">Capable of practical use at a professional level</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">3</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">Capable of practical use at a professional level</td>
                 </tr>
                 <tr>
-                  <td className="py-2 px-4 border-b border-zinc-700">4</td>
-                  <td className="py-2 px-4 border-b border-zinc-700">Advanced implementation and optimization skills, trusted in team</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">4</td>
+                  <td className="py-2 px-4 border-b border-zinc-200 dark:border-zinc-700">Advanced implementation and optimization skills, trusted in team</td>
                 </tr>
                 <tr>
                   <td className="py-2 px-4">5</td>

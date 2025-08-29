@@ -51,12 +51,12 @@ export default function History() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-900 dark:text-zinc-100">
             Writing about the projects I have been involved in, freelance work, and my career history
           </h1>
         </motion.div>
         <motion.p
-          className="mt-6 text-base text-zinc-400"
+          className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -65,7 +65,7 @@ export default function History() {
         </motion.p>
       </header>
       <div className="mt-16 sm:mt-20">
-        <div className="lg:border-l lg:pl-6 lg:border-zinc-700/40">
+        <div className="lg:border-l lg:pl-6 lg:border-zinc-900/10 dark:border-zinc-700/40">
           <motion.div initial="hidden" animate="visible" className="flex max-w-3xl flex-col space-y-8">
             {articles.map((article) => (
 
@@ -84,7 +84,7 @@ export default function History() {
                 </motion.time>
                 <div className="lg:col-span-3 flex flex-col items-start">
                   <motion.h2
-                    className="text-base font-semibold tracking-tight text-zinc-100"
+                    className="text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-100"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
@@ -94,7 +94,7 @@ export default function History() {
 
                   {article.description && (
                     <motion.p
-                      className="relative z-10 mt-2 text-sm text-zinc-400"
+                      className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: 0.3 }}

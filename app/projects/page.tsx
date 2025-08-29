@@ -50,12 +50,12 @@ export default function Projects() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-100">
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-900 dark:text-zinc-100">
             Creations from my engineering efforts and things born out of necessity.
           </h1>
         </motion.div>
         <motion.p
-          className="mt-6 text-base text-zinc-400"
+          className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3 }}

@@ -25,7 +25,7 @@ export default function LoginPage() {
   return (
     <div className="flex items-center justify-center">
       <div className="p-8 w-96">
-        <h2 className="text-2xl font-bold mb-6 text-center text-gray-300">Admin</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center text-zinc-900 dark:text-gray-300">Admin</h2>
         <form onSubmit={login}>
           <Fieldset className="space-y-6">
 
@@ -38,7 +38,7 @@ export default function LoginPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="bg-slate-600 mt-1 w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm"
+                className="mt-1 w-full px-4 py-2 rounded-md shadow-sm border border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-500 dark:bg-slate-600 dark:text-zinc-100"
               />
             </Field>
 
@@ -51,7 +51,7 @@ export default function LoginPage() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="bg-slate-600 mt-1 w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm"
+                className="mt-1 w-full px-4 py-2 rounded-md shadow-sm border border-zinc-300 bg-white text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-gray-500 dark:bg-slate-600 dark:text-zinc-100"
               />
             </Field>
 
@@ -61,13 +61,13 @@ export default function LoginPage() {
                   type="checkbox"
                   id="remember"
                   name="remember"
-                  className="bg-slate-600 h-4 w-4 border-gray-500 rounded"
+                  className="h-4 w-4 rounded border-zinc-300 text-teal-600 focus:ring-teal-500 dark:bg-slate-600 dark:border-gray-500"
                 />
-                <label htmlFor="remember" className="ml-2 block text-sm text-gray-500">save login state</label>
+                <label htmlFor="remember" className="ml-2 block text-sm text-zinc-600 dark:text-gray-500">save login state</label>
               </div>
             </div>
 
-            <button type="submit" className="w-full bg-slate-700 text-gray-300 py-2 px-4 rounded-md shadow hover:bg-slate-800">
+            <button type="submit" className="w-full py-2 px-4 rounded-md shadow bg-teal-600 text-white hover:bg-teal-700 dark:bg-slate-700 dark:text-gray-300 dark:hover:bg-slate-800">
               Submit
             </button>
           </Fieldset>
