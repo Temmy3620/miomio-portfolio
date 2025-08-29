@@ -120,7 +120,7 @@ export default function History() {
                   )}
                   {article.link?.href && (
                     <motion.a
-                      href={article.link.href}
+                      href={`${article.link.href}?lang=${locale}`}
                       className="hover:opacity-100"
                       target="_blank"
                       rel="noopener noreferrer"

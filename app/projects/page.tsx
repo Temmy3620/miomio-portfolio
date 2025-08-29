@@ -97,7 +97,7 @@ export default function Projects() {
                 visible: { opacity: 1, y: 0 },
               }}
             >
-              <a href={project.href} className="group">
+              <a href={project.href === '#' ? '#' : `${project.href}?lang=${locale}`} className="group">
                 <div className="md:w-64 md:h-40 overflow-hidden rounded-2xl bg-gray-200 relative">
                   <img
                     src={project.imageSrc}

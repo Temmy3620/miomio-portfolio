@@ -57,7 +57,7 @@ export default function Header() {
       return
     }
 
-    window.location.href = '/login'
+    window.location.href = `/login?lang=${locale}`
   }
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export default function Header() {
                           setDialogOpen(true);
                         }
                         : () => {
-                          window.location.href = '/login';
+                          window.location.href = `/login?lang=${locale}`;
                         }
                       }
                       className="pointer-events-auto"
@@ -140,7 +140,7 @@ export default function Header() {
                           {navigation.map((item) => (
                             <li key={item.key}>
                               <a
-                                href={item.href} className={`block py-2 hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-400' : ''}`}
+                                href={`${item.href}?lang=${locale}`} className={`block py-2 hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-400' : ''}`}
                                 aria-current={pathname.startsWith(item.href) ? 'page' : undefined}
                               >
                                 {locale === 'ja' ? item.nameJa : item.nameEn}
@@ -160,7 +160,7 @@ export default function Header() {
                         <a
                           className={`relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-500 dark:text-teal-400' : ''}`}
                           key={item.key}
-                          href={item.href}
+                          href={`${item.href}?lang=${locale}`}
                           aria-current={pathname === item.href ? 'page' : undefined}
                         >
                           {locale === 'ja' ? item.nameJa : item.nameEn}

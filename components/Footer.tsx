@@ -36,7 +36,7 @@ export default function Footer() {
                     {navigation.map((item) => (
                       <a
                         key={item.key}
-                        href={item.href}
+                        href={`${item.href}?lang=${locale}`}
                         className={`transition hover:text-teal-500 dark:hover:text-teal-400 ${pathname === item.href ? 'text-teal-600 dark:text-teal-400' : ''}`}
                       >
                         {locale === 'ja' ? item.nameJa : item.nameEn}

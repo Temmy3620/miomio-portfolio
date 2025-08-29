@@ -1,6 +1,7 @@
-'use client';
+"use client";
 
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
 type Locale = 'en' | 'ja';
 
@@ -19,19 +20,23 @@ function readCookie(name: string): string | undefined {
 
 export function LocaleProvider({ children, initialLocale }: { children: React.ReactNode; initialLocale?: Locale }) {
   const [locale, setLocaleState] = useState<Locale>(initialLocale || 'ja');
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Initialize from localStorage/cookie
   useEffect(() => {
     try {
+      const qp = (searchParams?.get('lang') as Locale | null);
       const stored = (localStorage.getItem('locale') as Locale | null);
       const cookie = (readCookie('locale') as Locale | undefined);
-      const init = stored === 'en' || stored === 'ja' ? stored : (cookie === 'en' || cookie === 'ja' ? cookie : (initialLocale || 'ja'));
+      const init = (qp === 'en' || qp === 'ja') ? qp : (stored === 'en' || stored === 'ja' ? stored : (cookie === 'en' || cookie === 'ja' ? cookie : (initialLocale || 'ja')));
       setLocaleState(init);
       document.documentElement.lang = init === 'ja' ? 'ja' : 'en';
     } catch {
       // ignore
     }
-  }, [initialLocale]);
+  }, [initialLocale, searchParams]);
 
   const setLocale = useCallback((next: Locale) => {
     setLocaleState(next);
@@ -43,6 +48,14 @@ export function LocaleProvider({ children, initialLocale }: { children: React.Re
     } catch {
       // ignore
     }
+    // reflect in URL query (?lang=en|ja) without adding history entries
+    try {
+      if (pathname) {
+        const sp = new URLSearchParams(searchParams ?? undefined);
+        sp.set('lang', next);
+        router.replace(`${pathname}?${sp.toString()}`);
+      }
+    } catch { /* ignore */ }
   }, []);
 
   const value = useMemo(() => ({ locale, setLocale }), [locale, setLocale]);
@@ -55,4 +68,3 @@ export function useLocale() {
   if (!ctx) throw new Error('useLocale must be used within LocaleProvider');
   return ctx;
 }
-
