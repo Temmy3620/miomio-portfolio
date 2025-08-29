@@ -136,8 +136,8 @@ export default function Profile() {
             sizes="(min-width: 1024px) 32rem, 20rem"
             src={user.imageUrl}
             style={{ color: "transparent" }}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50, rotate: 5 }}
+            animate={{ opacity: 1, y: 0, rotate: 5 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           />
         </div>
