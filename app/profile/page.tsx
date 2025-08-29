@@ -132,12 +132,12 @@ export default function Profile() {
             width="800"
             height="800"
             decoding="async"
-            className="aspect-square rotate-3 rounded-2xl object-cover bg-zinc-800"
+            className="aspect-square rotate-3 rounded-2xl object-cover bg-zinc-100 dark:bg-zinc-800"
             sizes="(min-width: 1024px) 32rem, 20rem"
             src={user.imageUrl}
             style={{ color: "transparent" }}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50, rotate: 5 }}
+            animate={{ opacity: 1, y: 0, rotate: 5 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           />
         </div>

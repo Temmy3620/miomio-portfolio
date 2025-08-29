@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useEffect, useState } from 'react';
+import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { createSupabaseClient } from '@/lib/supabaseClient';
 import { useSupabaseUser } from '@/lib/useRequireSession';
 import ConfirmDialog from '@/components/ConfirmDialog';
@@ -25,6 +26,23 @@ export default function Header() {
   const [hideHeader, setHideHeader] = useState(false);
   const user = useSupabaseUser();
   const [dialogOpen, setDialogOpen] = useState(false)
+  const [theme, setTheme] = useState<'light' | 'dark' | null>(null)
+
+  // Initialize and apply theme once mounted
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('theme') as 'light' | 'dark' | null
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+      const initial: 'light' | 'dark' = (stored === 'light' || stored === 'dark') ? stored : (prefersDark ? 'dark' : 'light')
+      setTheme(initial)
+      const root = document.documentElement
+      if (initial === 'dark') root.classList.add('dark')
+      else root.classList.remove('dark')
+      try { localStorage.setItem('theme', initial) } catch { }
+    } catch {
+      setTheme('dark')
+    }
+  }, [])
 
   const handleSignOut = async () => {
     console.log('サインアウト処理を実行')
@@ -55,7 +73,7 @@ export default function Header() {
   const isMyPage = pathname.startsWith('/mypage');
   const navigation = isMyPage ? (user === null ? baseNavigation : adminNavigation) : baseNavigation;
   return (
-    <div className={`fixed-menu pt-6 transition-all duration-300 ${hideHeader ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
+    <div className={`fixed-menu top-0 z-10 h-16 pt-6 transition-all duration-300 ${hideHeader ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}>
       <ConfirmDialog
         open={dialogOpen}
         onClose={() => setDialogOpen(false)}
@@ -72,7 +90,7 @@ export default function Header() {
               <div className="relative flex gap-4">
                 {/* Logo */}
                 <div className="flex flex-1">
-                  <div className="h-10 w-10 rounded-full p-0.5 shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur bg-zinc-800/90 ring-white/10">
+                  <div className="h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
                     <button
                       onClick={user
                         ? async () => {
@@ -91,7 +109,7 @@ export default function Header() {
                         width="512"
                         height="512"
                         decoding="async"
-                        className="rounded-full object-cover bg-zinc-800 h-9 w-9"
+                        className="rounded-full object-cover bg-zinc-100 dark:bg-zinc-800 h-9 w-9"
                         sizes="2.25rem"
                         src='/images/Temmyicon2.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
                       />
@@ -101,22 +119,22 @@ export default function Header() {
                 {/* Menu Button (Mobile) */}
                 <div className="flex flex-1 justify-end md:justify-center">
                   <Popover className="relative md:hidden">
-                    <PopoverButton className="group flex items-center rounded-full px-4 py-2 text-sm font-medium shadow-lg ring-1 backdrop-blur bg-zinc-800/90 text-zinc-200 ring-white/10 hover:ring-white/20">
+                    <PopoverButton className="group flex items-center rounded-full bg-white/90 px-4 py-2 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10 dark:hover:ring-white/20">
                       Menu
                       <svg
                         viewBox="0 0 8 6"
                         aria-hidden="true"
-                        className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-400"
+                        className="ml-3 h-auto w-2 stroke-zinc-500 group-hover:stroke-zinc-700 dark:group-hover:stroke-zinc-400"
                       >
                         <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                       </svg>
                     </PopoverButton>
                     <PopoverPanel
                       transition
-                      className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 duration-150 bg-zinc-900 ring-zinc-800 transition ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
+                      className="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl p-8 ring-1 duration-150 bg-white ring-zinc-200 dark:bg-zinc-900 dark:ring-zinc-800 transition ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0"
                     >
                       <nav className="">
-                        <ul className="-my-2 divide-y text-base divide-zinc-100/5 text-zinc-300">
+                        <ul className="-my-2 divide-y text-base divide-zinc-900/10 text-zinc-700 dark:divide-zinc-100/5 dark:text-zinc-300">
                           {navigation.map((item) => (
                             <li key={item.name}>
                               <a
@@ -134,22 +152,50 @@ export default function Header() {
                 </div>
                 {/* Navigation Links (Desktop) */}
                 <nav className="pointer-events-auto hidden md:block">
-                  <ul className="flex rounded-full px-3 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 backdrop-blur bg-zinc-800/90 text-zinc-200 ring-white/10">
+                  <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
                     {navigation.map((item) => (
                       <li key={item.name}>
                         <a
-                          className={`relative transition hover:text-teal-500 block px-3 py-2 ${pathname.startsWith(item.href) ? 'text-teal-400' : 'text-gray-200'}`}
+                          className={`relative block px-3 py-2 transition hover:text-teal-500 dark:hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-500 dark:text-teal-400' : ''}`}
                           key={item.name}
                           href={item.href}
                           aria-current={pathname === item.href ? 'page' : undefined}
                         >
                           {item.name}
-                          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-400/0 via-teal-400/40 to-teal-400/0"></span>
+                          {pathname.startsWith(item.href) && (
+                            <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0"></span>
+                          )}
                         </a>
                       </li>
                     ))}
                   </ul>
                 </nav>
+                {/* Theme Toggle (Right) */}
+                <div className="flex justify-end md:flex-1">
+                  <div className="pointer-events-auto">
+                    <button
+                      type="button"
+                      aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+                      className="group rounded-full bg-white/90 px-3 py-2 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm transition dark:bg-zinc-800/90 dark:ring-white/10 dark:hover:ring-white/20"
+                      onClick={() => {
+                        setTheme((t) => {
+                          const next = (t === 'dark' ? 'light' : 'dark') as 'light' | 'dark'
+                          const root = document.documentElement
+                          if (next === 'dark') root.classList.add('dark')
+                          else root.classList.remove('dark')
+                          try {
+                            localStorage.setItem('theme', next)
+                            document.cookie = `theme=${next}; path=/; max-age=31536000`
+                          } catch { }
+                          return next
+                        })
+                      }}
+                    >
+                      <SunIcon aria-hidden className="h-6 w-6 fill-zinc-100 stroke-zinc-500 transition group-hover:fill-zinc-200 group-hover:stroke-zinc-700 dark:hidden" />
+                      <MoonIcon aria-hidden className="hidden h-6 w-6 fill-zinc-700 stroke-zinc-500 transition dark:block" />
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

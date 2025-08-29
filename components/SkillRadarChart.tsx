@@ -57,7 +57,7 @@ interface CustomTickProps {
 export default function SkillRadarChart({ title, data, radarColor }: SkillRadarChartProps) {
   return (
     <div className="w-full max-w-xl mx-auto p-1">
-      <h2 className="text-xl font-semibold mb-4 text-center text-zinc-300">{title || 'Skill Readar'}</h2>
+      <h2 className="text-xl font-semibold mb-4 text-center text-zinc-600 dark:text-zinc-300">{title || 'Skill Readar'}</h2>
       <div className="w-full h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
           <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data || defaltData}>
