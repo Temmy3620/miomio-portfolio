@@ -5,8 +5,10 @@
     "date": {
       "start": "2024-07-01"
     },
-    "description": "Microsoft Advertising offline conversion tracking based on Bing Ads click IDs, with data delivery via the Microsoft Bing API.",
-    "descriptionJa": "Microsoft Advertising に表示された Bing 広告のクリックを起点に、電話発信などのオフラインコンバージョンを計測する処理を構築しました。Microsoft Bing API を用いて Offline Conversion API へデータ送信を行っています。",
+    "responsibilitiesJa": "要件定義〜実装・リリース",
+    "environmentJa": "Docker PHP Laravel TypeScript Next React",
+    "infrastructureJa": "AWS Route53 S3 CF Beanstalk MongoDB DocumentDB",
+    "teamRoleJa": "2名体制でプログラマーとして参画",
     "link": {
       "label": "Microsoft Bing API Project",
       "labelJa": "Microsoft Bing API プロジェクト",
@@ -40,8 +42,10 @@
     "date": {
       "start": "2023-11-01"
     },
-    "description": "Developed a web scraping application that aggregates data from 12 different sites into a single view.",
-    "descriptionJa": "12サイトのスクレイピングを行い一覧化するアプリを開発しました。",
+    "responsibilitiesJa": "要件定義〜実装・リリース",
+    "environmentJa": "Docker TypeScript Next React PHP Laravel",
+    "infrastructureJa": "GCP Cloud Run Vercel",
+    "teamRoleJa": "一人で全て担当",
     "link": {
       "label": "Scraping Project",
       "labelJa": "スクレイピングプロジェクト",
@@ -54,8 +58,10 @@
     "date": {
       "start": "2023-10-01"
     },
-    "description": "Developed and maintained an in-house video distribution application, including live streaming functionality and archiving features.",
-    "descriptionJa": "社内向け動画配信アプリの開発・保守に従事し、ライブ配信機能やアーカイブ機能を担当しました。",
+    "responsibilitiesJa": "要件定義〜実装・リリース",
+    "environmentJa": "Docker PHP Laravel JavaScript Vue",
+    "infrastructureJa": "AWS Route53 S3 CF Lambda EventBridge Beanstalk RDS MediaLive MediaConvert",
+    "teamRoleJa": "2名体制でプログラマーとして参画",
     "link": {
       "label": "Video Distribution Project",
       "labelJa": "動画配信アプリプロジェクト",
@@ -68,8 +74,9 @@
     "date": {
       "start": "2022-04-01"
     },
-    "description": "I worked continuously on projects such as POS system upgrades, customer management systems, and new OS migration. Responsibilities covered requirement definition, development, release, and maintenance.",
-    "descriptionJa": "POSシステム改修、顧客管理システム改修、新OS対応など複数プロジェクトに継続して従事。要件定義から開発・リリース・保守までを担当しました。",
+    "responsibilitiesJa": "実装・テスト",
+    "environmentJa": "C# PHP Laravel JavaScript Java",
+    "teamRoleJa": "9名体制でプログラマーとして参画",
     "link": {
       "label": "Various Projects",
       "labelJa": "各種プロジェクト",

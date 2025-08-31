@@ -64,16 +64,67 @@ export default function History() {
                     {locale === 'ja' ? (article as any).titleJa ?? article.title : article.title}
                   </motion.h2>
 
-                  {article.description && (
-                    <motion.p
-                      className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
-                    >
-                      {locale === 'ja' ? (article as any).descriptionJa ?? article.description : article.description}
-                    </motion.p>
-                  )}
+                  {(() => {
+                    const getVal = (enKey: keyof typeof article, jaKey: string) => {
+                      const a: any = article as any;
+                      if (locale === 'ja') return a[jaKey] ?? a[enKey];
+                      return a[enKey];
+                    };
+
+                    const fields = [
+                      {
+                        label: locale === 'ja' ? '【担当業務】' : 'Responsibilities: ',
+                        value: getVal('responsibilities' as any, 'responsibilitiesJa'),
+                      },
+                      {
+                        label: locale === 'ja' ? '【開発環境】' : 'Tech Stack: ',
+                        value: getVal('environment' as any, 'environmentJa'),
+                      },
+                      {
+                        label: locale === 'ja' ? '【インフラ】' : 'Infrastructure: ',
+                        value: getVal('infrastructure' as any, 'infrastructureJa'),
+                      },
+                      {
+                        label: locale === 'ja' ? '【メンバー構成/役割】' : 'Team/Role: ',
+                        value: getVal('teamRole' as any, 'teamRoleJa'),
+                      },
+                    ].filter((f) => !!f.value);
+
+                    const hasStructured = fields.length > 0;
+
+                    if (hasStructured) {
+                      return (
+                        <motion.div
+                          className="relative z-10 mt-2 space-y-1 text-sm text-zinc-600 dark:text-zinc-400"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          {fields.map((f, idx) => (
+                            <div key={idx} className="leading-6">
+                              <span className="font-medium text-zinc-700 dark:text-zinc-300">{f.label}</span>
+                              <span>{f.value}</span>
+                            </div>
+                          ))}
+                        </motion.div>
+                      );
+                    }
+
+                    if (article.description) {
+                      return (
+                        <motion.p
+                          className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.3 }}
+                        >
+                          {locale === 'ja' ? (article as any).descriptionJa ?? article.description : article.description}
+                        </motion.p>
+                      );
+                    }
+
+                    return null;
+                  })()}
                   {article.link?.href && (
                     <motion.a
                       href={`${article.link.href}?lang=${locale}`}
