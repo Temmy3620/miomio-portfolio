@@ -4,8 +4,19 @@ import { motion } from "framer-motion";
 import { useLocale } from '@/components/LocaleProvider';
 import projects from '@/data/projects.json';
 
+type Project = {
+  name: string;
+  href: string;
+  imageSrc: string;
+  colorKey?: 'blue' | 'gray';
+};
+
 export default function Projects() {
   const { locale } = useLocale();
+  const colorClassMap: Record<NonNullable<Project['colorKey']>, string> = {
+    blue: 'text-blue-700',
+    gray: 'text-gray-700',
+  };
   const t = {
     title: locale === 'ja'
       ? 'エンジニアとして取り組んできた制作物や、必要から生まれたプロジェクト'
@@ -50,7 +61,7 @@ export default function Projects() {
             },
           }}
         >
-          {projects.map((project, index) => (
+          {(projects as Project[]).map((project, index) => (
             <motion.li
               key={index}
               className="group relative flex flex-col items-start"
@@ -67,7 +78,7 @@ export default function Projects() {
                     className="h-full w-full object-cover opacity-40 transition-opacity duration-250 group-hover:opacity-75"
                   />
                   <div className="absolute inset-0 flex items-end justify-start transition-opacity duration-250 opacity-100 group-hover:opacity-10">
-                    <p className={`text-xl font-bold p-3 ${project.textColor}`}>{project.name === 'In preparation...' ? (locale === 'ja' ? '準備中...' : 'In preparation...') : project.name}</p>
+                    <p className={`text-xl font-bold p-3 ${colorClassMap[project.colorKey ?? 'gray'] ?? 'text-gray-700'}`}>{project.name === 'In preparation...' ? (locale === 'ja' ? '準備中...' : 'In preparation...') : project.name}</p>
                   </div>
                 </div>
               </a>
