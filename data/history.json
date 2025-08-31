@@ -5,9 +5,13 @@
     "date": {
       "start": "2024-07-01"
     },
+    "responsibilities": "Requirements definition through implementation and release",
     "responsibilitiesJa": "要件定義〜実装・リリース",
+    "environment": "Docker PHP Laravel TypeScript Next React",
     "environmentJa": "Docker PHP Laravel TypeScript Next React",
+    "infrastructure": "AWS Route53 S3 CloudFront Beanstalk MongoDB DocumentDB",
     "infrastructureJa": "AWS Route53 S3 CF Beanstalk MongoDB DocumentDB",
+    "teamRole": "Two-person team, programmer role",
     "teamRoleJa": "2名体制でプログラマーとして参画",
     "link": {
       "label": "Microsoft Bing API Project",
@@ -31,7 +35,7 @@
   },
   {
     "title": "Left a major IT company specializing in system development and infrastructure.",
-    "titleJa": "大手システム開発・インフラ会社を退社",
+    "titleJa": "大手システム開発会社を退社",
     "date": {
       "start": "2024-06-26"
     }
@@ -42,9 +46,13 @@
     "date": {
       "start": "2023-11-01"
     },
+    "responsibilities": "Requirements definition through implementation and release",
     "responsibilitiesJa": "要件定義〜実装・リリース",
+    "environment": "Docker TypeScript Next React PHP Laravel",
     "environmentJa": "Docker TypeScript Next React PHP Laravel",
+    "infrastructure": "GCP Cloud Run Vercel",
     "infrastructureJa": "GCP Cloud Run Vercel",
+    "teamRole": "Solo development (single developer)",
     "teamRoleJa": "一人で全て担当",
     "link": {
       "label": "Scraping Project",
@@ -54,13 +62,17 @@
   },
   {
     "title": "Worked on in-house video distribution application development and maintenance.",
-    "titleJa": "システム開発・インフラ会社：動画配信アプリ開発・保守に従事",
+    "titleJa": "システム開発会社：動画配信アプリ開発・保守に従事",
     "date": {
       "start": "2023-10-01"
     },
+    "responsibilities": "Requirements definition through implementation and release",
     "responsibilitiesJa": "要件定義〜実装・リリース",
+    "environment": "Docker PHP Laravel JavaScript Vue",
     "environmentJa": "Docker PHP Laravel JavaScript Vue",
+    "infrastructure": "AWS Route53 S3 CloudFront Lambda EventBridge Beanstalk RDS MediaLive MediaConvert",
     "infrastructureJa": "AWS Route53 S3 CF Lambda EventBridge Beanstalk RDS MediaLive MediaConvert",
+    "teamRole": "Two-person team, programmer role",
     "teamRoleJa": "2名体制でプログラマーとして参画",
     "link": {
       "label": "Video Distribution Project",
@@ -70,12 +82,15 @@
   },
   {
     "title": "Involved in development and maintenance of multiple Web/Business applications.",
-    "titleJa": "システム開発・インフラ会社：複数のWeb・業務アプリ開発・保守に従事",
+    "titleJa": "システム開発会社：複数のWeb・業務アプリ開発・保守に従事",
     "date": {
       "start": "2022-04-01"
     },
+    "responsibilities": "Implementation and testing",
     "responsibilitiesJa": "実装・テスト",
+    "environment": "C# PHP Laravel JavaScript Java",
     "environmentJa": "C# PHP Laravel JavaScript Java",
+    "teamRole": "Programmer on a 9-person team",
     "teamRoleJa": "9名体制でプログラマーとして参画",
     "link": {
       "label": "Various Projects",

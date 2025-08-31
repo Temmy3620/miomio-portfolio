@@ -110,19 +110,6 @@ export default function History() {
                       );
                     }
 
-                    if (article.description) {
-                      return (
-                        <motion.p
-                          className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.5, delay: 0.3 }}
-                        >
-                          {locale === 'ja' ? (article as any).descriptionJa ?? article.description : article.description}
-                        </motion.p>
-                      );
-                    }
-
                     return null;
                   })()}
                   {article.link?.href && (
