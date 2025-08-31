@@ -1,16 +1,14 @@
 [
   {
-    "title": "a certain advertising company: Implementing the Offline Conversion API using the Microsoft Bing API.",
-    "titleJa": "某広告会社様：Microsoft Bing API を用いた Offline Conversion API の実装",
-    "date": {
-      "start": "2024-07-01"
-    },
+    "title": "Contracted by an advertising company to develop a feature that links conversions to ads.",
+    "titleJa": "某広告会社様より業務委託契約を受託。コンバージョンを広告に連携する機能開発",
+    "date": "2024-07",
     "responsibilities": "Requirements definition through implementation and release",
     "responsibilitiesJa": "要件定義〜実装・リリース",
-    "environment": "Docker PHP Laravel TypeScript Next React",
-    "environmentJa": "Docker PHP Laravel TypeScript Next React",
+    "environment": "Docker PHP Laravel TypeScript Next React NoSQL",
+    "environmentJa": "Docker PHP Laravel TypeScript Next React NoSQL",
     "infrastructure": "AWS Route53 S3 CloudFront Beanstalk MongoDB DocumentDB",
-    "infrastructureJa": "AWS Route53 S3 CF Beanstalk MongoDB DocumentDB",
+    "infrastructureJa": "AWS Route53 S3 CF Beanstalk RDS MongoDB DocumentDB",
     "teamRole": "Two-person team, programmer role",
     "teamRoleJa": "2名体制でプログラマーとして参画",
     "link": {
@@ -20,32 +18,14 @@
     }
   },
   {
-    "title": "I have been contracted by a certain advertising company. for outsourced work.",
-    "titleJa": "某広告会社様より業務委託契約を受託",
-    "date": {
-      "start": "2024-07-01"
-    }
-  },
-  {
-    "title": "I’m starting my own business and beginning my career as a freelance engineer",
-    "titleJa": "個人事業を開業し、フリーランスエンジニアとして活動開始",
-    "date": {
-      "start": "2024-06-30"
-    }
-  },
-  {
-    "title": "Left a major IT company specializing in system development and infrastructure.",
-    "titleJa": "大手システム開発会社を退社",
-    "date": {
-      "start": "2024-06-26"
-    }
+    "title": "Left a major IT company specializing in system development and infrastructure.I’m starting my own business and beginning my career as a freelance engineer",
+    "titleJa": "大手システム開発会社を退社し、個人事業を開業。フリーランスエンジニアとして活動開始",
+    "date": "2024-06"
   },
   {
     "title": "Side project: Web scraping application for 12 sites.",
-    "titleJa": "副業：12サイトのスクレイピングを行い一覧化するアプリ開発",
-    "date": {
-      "start": "2023-11-01"
-    },
+    "titleJa": "副業で、12サイトのスクレイピングを行い一覧化するアプリ開発",
+    "date": "2023-11",
     "responsibilities": "Requirements definition through implementation and release",
     "responsibilitiesJa": "要件定義〜実装・リリース",
     "environment": "Docker TypeScript Next React PHP Laravel",
@@ -62,10 +42,8 @@
   },
   {
     "title": "Worked on in-house video distribution application development and maintenance.",
-    "titleJa": "システム開発会社：動画配信アプリ開発・保守に従事",
-    "date": {
-      "start": "2023-10-01"
-    },
+    "titleJa": "同様のシステム開発会社で、動画配信アプリ開発・保守に従事",
+    "date": "2023-10",
     "responsibilities": "Requirements definition through implementation and release",
     "responsibilitiesJa": "要件定義〜実装・リリース",
     "environment": "Docker PHP Laravel JavaScript Vue",
@@ -81,15 +59,13 @@
     }
   },
   {
-    "title": "Involved in development and maintenance of multiple Web/Business applications.",
-    "titleJa": "システム開発会社：複数のWeb・業務アプリ開発・保守に従事",
-    "date": {
-      "start": "2022-04-01"
-    },
+    "title": "Joined a major IT company as a new graduate, working on Web and business application development and maintenance.",
+    "titleJa": "システム開発・インフラを手掛ける大手IT企業に入社。複数のPOS・顧客管理システムアプリ開発・保守に従事",
+    "date": "2022-04",
     "responsibilities": "Implementation and testing",
     "responsibilitiesJa": "実装・テスト",
-    "environment": "C# PHP Laravel JavaScript Java",
-    "environmentJa": "C# PHP Laravel JavaScript Java",
+    "environment": "C# PHP Laravel JavaScript Java MySQL",
+    "environmentJa": "C# PHP Laravel JavaScript Java MySQL",
     "teamRole": "Programmer on a 9-person team",
     "teamRoleJa": "9名体制でプログラマーとして参画",
     "link": {
@@ -99,10 +75,13 @@
     }
   },
   {
-    "title": "Started my career at a major IT company specializing in system development and infrastructure as a new graduate.",
-    "titleJa": "新卒でシステム開発・インフラを手掛ける大手IT企業に入社",
-    "date": {
-      "start": "2022-04-01"
-    }
+    "title": "Graduated from university.",
+    "titleJa": "大学卒業",
+    "date": "2022-03"
+  },
+  {
+    "title": "Started university studies in information engineering.",
+    "titleJa": "大学に入学し、情報工学を学ぶ",
+    "date": "2018-04"
   }
 ]

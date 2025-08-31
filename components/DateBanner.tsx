@@ -13,9 +13,7 @@ export function DateBanner({ date = new Date(), className = "" }: DateBannerProp
   // Deterministic timezone to avoid hydration mismatch
   const formattedDate = new Intl.DateTimeFormat(fmtLocale, {
     year: "numeric",
-    month: "long",
-    day: "numeric",
-    timeZone: "UTC",
+    month: "long"
   }).format(date)
 
   return (

@@ -15,6 +15,12 @@ export default function History() {
       ? '取り組んできた内容を時系列でまとめています。'
       : 'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
   };
+  // idを廃止し、YYYY-MMの文字列で降順ソート
+  const orderedArticles = [...articles].sort((a, b) => {
+    const ad = (a)?.date ?? '';
+    const bd = (b)?.date ?? '';
+    return ad.localeCompare(bd);
+  });
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
@@ -39,10 +45,10 @@ export default function History() {
       <div className="mt-16 sm:mt-20">
         <div className="lg:border-l lg:pl-6 lg:border-zinc-900/10 dark:border-zinc-700/40">
           <motion.div initial="hidden" animate="visible" className="flex max-w-3xl flex-col space-y-8">
-            {articles.map((article) => (
+            {orderedArticles.map((article) => (
 
               <motion.div
-                key={article.title}
+                key={`${article.date}-${article.title}`}
                 className="lg:grid lg:grid-cols-4 lg:items-baseline"
                 variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }}
               >
@@ -52,7 +58,7 @@ export default function History() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  <DateBanner date={new Date(article.date.start)} />
+                  <DateBanner date={new Date(`${article.date}`)} />
                 </motion.time>
                 <div className="lg:col-span-3 flex flex-col items-start">
                   <motion.h2
@@ -61,7 +67,7 @@ export default function History() {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    {locale === 'ja' ? (article as any).titleJa ?? article.title : article.title}
+                    {locale === 'ja' ? article.titleJa ?? article.title : article.title}
                   </motion.h2>
 
                   {(() => {
@@ -123,7 +129,7 @@ export default function History() {
                       transition={{ duration: 0.5, delay: 0.4 }}
                     >
                       <div className="relative z-10 mt-2 flex items-center text-sm font-medium text-teal-500 hover:bg-zinc-500/25 rounded-lg sm:rounded-xl lg:rounded-2xl py-1 px-3">
-                        {locale === 'ja' ? (article.link as any).labelJa ?? article.link.label : article.link.label}
+                        {locale === 'ja' ? article.link.labelJa ?? article.link.label : article.link.label}
                         <svg viewBox="0 0 16 16" fill="none" aria-hidden="true" className="ml-1 h-4 w-4 stroke-current">
                           <path d="M6.75 5.75 9.25 8l-2.5 2.25" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>

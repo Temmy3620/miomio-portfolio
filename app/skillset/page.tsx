@@ -17,7 +17,7 @@ const backEnd = [
   { subject: 'PHP', value: 5 },
   { subject: 'Java', value: 1 },
   { subject: 'Python', value: 1 },
-  { subject: 'Laravel', value: 2 },
+  { subject: 'Laravel', value: 4 },
   { subject: 'MySQL', value: 4 },
   { subject: 'MongoDB', value: 4 },
 ]
