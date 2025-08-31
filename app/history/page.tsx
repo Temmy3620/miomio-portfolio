@@ -5,6 +5,29 @@ import { motion } from "framer-motion";
 import { useLocale } from '@/components/LocaleProvider';
 import articles from '@/data/history.json';
 
+type HistoryLink = {
+  label: string;
+  labelJa?: string;
+  href: string;
+};
+
+type HistoryArticle = {
+  title: string;
+  titleJa?: string;
+  date: string; // YYYY-MM
+  description?: string;
+  descriptionJa?: string;
+  responsibilities?: string;
+  responsibilitiesJa?: string;
+  environment?: string;
+  environmentJa?: string;
+  infrastructure?: string;
+  infrastructureJa?: string;
+  teamRole?: string;
+  teamRoleJa?: string;
+  link?: HistoryLink;
+};
+
 export default function History() {
   const { locale } = useLocale();
   const t = {
@@ -15,12 +38,10 @@ export default function History() {
       ? '取り組んできた内容を時系列でまとめています。'
       : 'All of my long-form thoughts on programming, leadership, product design, and more, collected in chronological order.',
   };
-  // idを廃止し、YYYY-MMの文字列で降順ソート
-  const orderedArticles = [...articles].sort((a, b) => {
-    const ad = (a)?.date ?? '';
-    const bd = (b)?.date ?? '';
-    return ad.localeCompare(bd);
-  });
+  // YYYY-MM の文字列で降順ソート
+  const orderedArticles: HistoryArticle[] = [...(articles as HistoryArticle[])].sort(
+    (a, b) => a.date.localeCompare(b.date)
+  );
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
       <header className="max-w-2xl">
@@ -58,7 +79,7 @@ export default function History() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
                 >
-                  <DateBanner date={new Date(`${article.date}`)} />
+                  <DateBanner date={new Date(`${article.date}-01`)} />
                 </motion.time>
                 <div className="lg:col-span-3 flex flex-col items-start">
                   <motion.h2
@@ -71,34 +92,29 @@ export default function History() {
                   </motion.h2>
 
                   {(() => {
-                    const getVal = (enKey: keyof typeof article, jaKey: string) => {
-                      const a: any = article as any;
-                      if (locale === 'ja') return a[jaKey] ?? a[enKey];
-                      return a[enKey];
-                    };
+                    const pick = (en?: string, ja?: string) =>
+                      locale === 'ja' ? (ja ?? en) : en;
 
                     const fields = [
                       {
                         label: locale === 'ja' ? '【担当業務】' : 'Responsibilities: ',
-                        value: getVal('responsibilities' as any, 'responsibilitiesJa'),
+                        value: pick(article.responsibilities, article.responsibilitiesJa),
                       },
                       {
                         label: locale === 'ja' ? '【開発環境】' : 'Tech Stack: ',
-                        value: getVal('environment' as any, 'environmentJa'),
+                        value: pick(article.environment, article.environmentJa),
                       },
                       {
                         label: locale === 'ja' ? '【インフラ】' : 'Infrastructure: ',
-                        value: getVal('infrastructure' as any, 'infrastructureJa'),
+                        value: pick(article.infrastructure, article.infrastructureJa),
                       },
                       {
                         label: locale === 'ja' ? '【メンバー構成/役割】' : 'Team/Role: ',
-                        value: getVal('teamRole' as any, 'teamRoleJa'),
+                        value: pick(article.teamRole, article.teamRoleJa),
                       },
-                    ].filter((f) => !!f.value);
+                    ].filter((f) => Boolean(f.value));
 
-                    const hasStructured = fields.length > 0;
-
-                    if (hasStructured) {
+                    if (fields.length > 0) {
                       return (
                         <motion.div
                           className="relative z-10 mt-2 space-y-1 text-sm text-zinc-600 dark:text-zinc-400"
