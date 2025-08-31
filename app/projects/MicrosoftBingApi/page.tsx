@@ -23,21 +23,21 @@ export default function MicrosoftBingApi() {
       <header className="max-w-2xl">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl text-zinc-900 dark:text-zinc-100">
           {locale === 'ja'
-            ? 'Microsoft Advertising の Offline Conversion API を用いて、コンバージョンデータを送信する機能を開発'
-            : 'Develop a feature to send conversion data to Microsoft Advertising using the Offline Conversion API.'}
+            ? '広告プラットフォームの Offline Conversion API を用いて、コンバージョンデータを送信する機能を開発'
+            : 'Develop a feature to send conversion data using the Offline Conversion API of advertising platforms.'}
         </h1>
         <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
           {locale === 'ja'
-            ? 'Microsoft Bing API を用いて、Microsoft Advertising にオフラインコンバージョンデータを送信する処理を開発しました。Microsoft Advertising に掲載された Bing 広告のクリックを起点に、電話発信が行われたケースを計測・送信します。'
-            : 'I have developed a process that sends offline conversion data to Microsoft Advertising using the Microsoft Bing API. This process tracks Bing ads displayed on Microsoft Advertising, where a phone call is triggered after an ad click.'}
+            ? '複数の広告プラットフォームの API を利用して、オフラインコンバージョンデータを送信する処理を開発しました。広告クリックを起点に電話発信や来店などのオフライン行動が発生したケースを計測・送信します。'
+            : 'I have developed a process that sends offline conversion data using APIs of multiple advertising platforms. This process tracks offline actions such as phone calls or store visits triggered after an ad click.'}
         </p>
       </header>
       <div className="mt-16 sm:mt-20">
         <h1 className="text-1xl tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-100">{locale === 'ja' ? '技術スタック' : 'Technology Stack'}</h1>
         <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
           {locale === 'ja' ? '使用言語 (PHP)' : 'Programming languages used (PHP)'}<br />
-          Frameworks and libraries (Guzzle, BEAR.Sunday)<br />
-          {locale === 'ja' ? 'クラウド・API (Microsoft Azure, Microsoft Bing API)' : 'Cloud Services and APIs (Microsoft Azure, Microsoft Bing API)'}<br />
+          Frameworks and libraries (Guzzle, Laravel)<br />
+          {locale === 'ja' ? 'クラウド・API (Microsoft Azure, Microsoft Bing API, GCP, Google Ads API)' : 'Cloud Services and APIs (Microsoft Azure, Microsoft Bing API, GCP, Google Ads API)'}<br />
           Development Tools (php-cs-fixer, PHPUnit, PHPStan, PHPMD, PHP_CodeSniffer, Composer, Docker)<br />
           Version Control System (Git, GitHub)<br />
           Communication Tools (Slack)<br />
@@ -54,14 +54,14 @@ export default function MicrosoftBingApi() {
         <p className="mt-6 text-bold text-zinc-900 dark:text-white">{locale === 'ja' ? '単体テスト:' : 'Unit Test:'}</p>
         <p className="mt-1 text-base text-zinc-600 dark:text-zinc-400">
           {locale === 'ja'
-            ? 'MongoDB にテストデータを投入し、Microsoft Ads API を通じて、指定したパラメータに基づくコンバージョンデータが正しく取得できるか（ロジック検証を含む）を確認しました。フィルタや期間指定が意図通りに作用し、件数や内容が正しいことを検証しています。'
-            : 'We insert test data into MongoDB and verify, including logic validation, whether conversion data based on specified parameters is correctly retrieved through the Microsoft Ads API. Specifically, we checked that filtering and time range application function as intended, returning the correct count and data content.'}
+            ? 'MongoDB にテストデータを投入し、広告 API を通じて、指定したパラメータに基づくコンバージョンデータが正しく取得できるか（ロジック検証を含む）を確認しました。フィルタや期間指定が意図通りに作用し、件数や内容が正しいことを検証しています。'
+            : 'We insert test data into MongoDB and verify, including logic validation, whether conversion data based on specified parameters is correctly retrieved through the Advertising API. Specifically, we checked that filtering and time range application function as intended, returning the correct count and data content.'}
         </p>
         <p className="mt-6 text-bold text-zinc-900 dark:text-white">{locale === 'ja' ? '総合テスト:' : 'Comprehensive Test:'}</p>
         <p className="mt-1 text-base text-zinc-600 dark:text-zinc-400">
           {locale === 'ja'
-            ? '正常系では、コンバージョン件数や金額のバリエーションを含め、Microsoft Advertising へのデータ送信が成功することを確認しました。あわせて、アクセストークン取得失敗や送信失敗などの異常系もテストしています。'
-            : 'In the tests, we verified the successful transmission of conversion data to Microsoft Advertising under normal conditions, with variations in conversion count and conversion value. Additionally, we conducted failure scenario tests, including cases where the access token retrieval fails and cases where the conversion transmission itself fails.'}
+            ? '正常系では、コンバージョン件数や金額のバリエーションを含め、広告プラットフォーム へのデータ送信が成功することを確認しました。あわせて、アクセストークン取得失敗や送信失敗などの異常系もテストしています。'
+            : 'In the tests, we verified the successful transmission of conversion data to Advertising platforms under normal conditions, with variations in conversion count and conversion value. Additionally, we conducted failure scenario tests, including cases where the access token retrieval fails and cases where the conversion transmission itself fails.'}
         </p>
       </div>
       <div className="mt-6 sm:mt-10">

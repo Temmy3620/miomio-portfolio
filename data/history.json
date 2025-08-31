@@ -12,8 +12,8 @@
     "teamRole": "Two-person team, programmer role",
     "teamRoleJa": "2名体制でプログラマーとして参画",
     "link": {
-      "label": "Microsoft Bing API Project",
-      "labelJa": "Microsoft Bing API プロジェクト",
+      "label": "Conversion Ads Integration Project",
+      "labelJa": "コンバージョン 広告連携 プロジェクト",
       "href": "./projects/MicrosoftBingApi"
     }
   },
@@ -67,21 +67,16 @@
     "environment": "C# PHP Laravel JavaScript Java MySQL",
     "environmentJa": "C# PHP Laravel JavaScript Java MySQL",
     "teamRole": "Programmer on a 9-person team",
-    "teamRoleJa": "9名体制でプログラマーとして参画",
-    "link": {
-      "label": "Various Projects",
-      "labelJa": "各種プロジェクト",
-      "href": "./projects"
-    }
+    "teamRoleJa": "9名体制でプログラマーとして参画"
   },
   {
-    "title": "Graduated from university.",
-    "titleJa": "大学卒業",
+    "title": "Graduated with a Bachelor's degree in Information Engineering.",
+    "titleJa": "情報工学科を卒業（学士号取得）",
     "date": "2022-03"
   },
   {
-    "title": "Started university studies in information engineering.",
-    "titleJa": "大学に入学し、情報工学を学ぶ",
+    "title": "Enrolled in a four-year Information Engineering program, focusing on software development, databases, and web technologies.",
+    "titleJa": "4年制の情報工学科に入学し、ソフトウェア開発・データベース・Web技術を中心に学ぶ",
     "date": "2018-04"
   }
 ]
