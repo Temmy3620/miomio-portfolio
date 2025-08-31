@@ -3,9 +3,9 @@
     "title": "a certain advertising company: Implementing the Offline Conversion API using the Microsoft Bing API.",
     "titleJa": "某広告会社様：Microsoft Bing API を用いた Offline Conversion API の実装",
     "date": {
-      "start": "2024-10-01"
+      "start": "2024-07-01"
     },
-    "description": "When you’re building a website for a company as ambitious as Planetaria, you need to make an impression. I wanted people to visit our website and see animations that looked more realistic than reality itself",
+    "description": "Microsoft Advertising offline conversion tracking based on Bing Ads click IDs, with data delivery via the Microsoft Bing API.",
     "descriptionJa": "Microsoft Advertising に表示された Bing 広告のクリックを起点に、電話発信などのオフラインコンバージョンを計測する処理を構築しました。Microsoft Bing API を用いて Offline Conversion API へデータ送信を行っています。",
     "link": {
       "label": "Microsoft Bing API Project",
@@ -17,14 +17,70 @@
     "title": "I have been contracted by a certain advertising company. for outsourced work.",
     "titleJa": "某広告会社様より業務委託契約を受託",
     "date": {
-      "start": "2024-10-01"
+      "start": "2024-07-01"
     }
   },
   {
     "title": "I’m starting my own business and beginning my career as a freelance engineer",
     "titleJa": "個人事業を開業し、フリーランスエンジニアとして活動開始",
     "date": {
-      "start": "2024-09-30"
+      "start": "2024-06-30"
+    }
+  },
+  {
+    "title": "Left a major IT company specializing in system development and infrastructure.",
+    "titleJa": "大手システム開発・インフラ会社を退社",
+    "date": {
+      "start": "2024-06-26"
+    }
+  },
+  {
+    "title": "Side project: Web scraping application for 12 sites.",
+    "titleJa": "副業：12サイトのスクレイピングを行い一覧化するアプリ開発",
+    "date": {
+      "start": "2023-11-01"
+    },
+    "description": "Developed a web scraping application that aggregates data from 12 different sites into a single view.",
+    "descriptionJa": "12サイトのスクレイピングを行い一覧化するアプリを開発しました。",
+    "link": {
+      "label": "Scraping Project",
+      "labelJa": "スクレイピングプロジェクト",
+      "href": "./projects/ScrapingApp"
+    }
+  },
+  {
+    "title": "Worked on in-house video distribution application development and maintenance.",
+    "titleJa": "システム開発・インフラ会社：動画配信アプリ開発・保守に従事",
+    "date": {
+      "start": "2023-10-01"
+    },
+    "description": "Developed and maintained an in-house video distribution application, including live streaming functionality and archiving features.",
+    "descriptionJa": "社内向け動画配信アプリの開発・保守に従事し、ライブ配信機能やアーカイブ機能を担当しました。",
+    "link": {
+      "label": "Video Distribution Project",
+      "labelJa": "動画配信アプリプロジェクト",
+      "href": "./projects/VideoApp"
+    }
+  },
+  {
+    "title": "Involved in development and maintenance of multiple Web/Business applications.",
+    "titleJa": "システム開発・インフラ会社：複数のWeb・業務アプリ開発・保守に従事",
+    "date": {
+      "start": "2022-04-01"
+    },
+    "description": "I worked continuously on projects such as POS system upgrades, customer management systems, and new OS migration. Responsibilities covered requirement definition, development, release, and maintenance.",
+    "descriptionJa": "POSシステム改修、顧客管理システム改修、新OS対応など複数プロジェクトに継続して従事。要件定義から開発・リリース・保守までを担当しました。",
+    "link": {
+      "label": "Various Projects",
+      "labelJa": "各種プロジェクト",
+      "href": "./projects"
+    }
+  },
+  {
+    "title": "Started my career at a major IT company specializing in system development and infrastructure as a new graduate.",
+    "titleJa": "新卒でシステム開発・インフラを手掛ける大手IT企業に入社",
+    "date": {
+      "start": "2022-04-01"
     }
   }
 ]
