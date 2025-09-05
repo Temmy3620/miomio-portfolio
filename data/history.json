@@ -1,7 +1,7 @@
 [
   {
-    "title": "Contracted by an advertising company to develop a feature that links conversions to ads.",
-    "titleJa": "某広告会社様より業務委託契約を受託。コンバージョンを広告に連携する機能開発",
+    "title": "Contracted by an advertising company to develop a feature.",
+    "titleJa": "某広告会社様より業務委託契約を受託。",
     "date": "2024-07",
     "responsibilities": "Requirements definition through implementation and release",
     "responsibilitiesJa": "要件定義〜実装・リリース",
@@ -11,7 +11,7 @@
     "infrastructureJa": "AWS Route53 S3 CF Beanstalk RDS MongoDB DocumentDB",
     "teamRole": "Two-person team, programmer role",
     "teamRoleJa": "2名体制でプログラマーとして参画",
-    "link": {
+    "_link": {
       "label": "Conversion Ads Integration Project",
       "labelJa": "コンバージョン 広告連携 プロジェクト",
       "href": "./projects/MicrosoftBingApi"
@@ -34,7 +34,7 @@
     "infrastructureJa": "GCP Cloud Run Vercel",
     "teamRole": "Solo development (single developer)",
     "teamRoleJa": "一人で全て担当",
-    "link": {
+    "_link": {
       "label": "Scraping Project",
       "labelJa": "スクレイピングプロジェクト",
       "href": "./projects/ScrapingApp"
@@ -52,7 +52,7 @@
     "infrastructureJa": "AWS Route53 S3 CF Lambda EventBridge Beanstalk RDS MediaLive MediaConvert",
     "teamRole": "Two-person team, programmer role",
     "teamRoleJa": "2名体制でプログラマーとして参画",
-    "link": {
+    "_link": {
       "label": "Video Distribution Project",
       "labelJa": "動画配信アプリプロジェクト",
       "href": "./projects/VideoApp"

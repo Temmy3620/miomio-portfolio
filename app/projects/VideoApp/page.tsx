@@ -1,4 +1,4 @@
-
+/*
 export default function MicrosoftBingApi() {
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
@@ -10,8 +10,8 @@ export default function MicrosoftBingApi() {
     </div>
   );
 }
+*/
 
-/*
 "use client";
 
 import { useLocale } from '@/components/LocaleProvider';
@@ -75,4 +75,3 @@ export default function MicrosoftBingApi() {
     </div>
   );
 }
-  */
