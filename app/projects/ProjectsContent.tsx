@@ -25,8 +25,8 @@ export default function ProjectsContent({ projects }: ProjectsContentProps) {
       ? 'エンジニアとして取り組んできた制作物や、必要から生まれたプロジェクト'
       : 'Creations from my engineering efforts and things born out of necessity.',
     lead: locale === 'ja'
-      ? 'これまで手がけたプロジェクトの一部を紹介します。多くはオープンソース化されています。気になるものがあれば、ぜひコードをご覧いただき、改善アイデアがあればコントリビュートしてください。'
-      : 'I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved.',
+      ? 'これまで作成したアプリケーションを紹介します。'
+      : 'Here are some of the applications I’ve built.',
   };
   return (
     <div className="mx-auto max-w-2xl lg:max-w-5xl">
