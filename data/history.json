@@ -10,12 +10,7 @@
     "infrastructure": "AWS Route53 S3 CloudFront Beanstalk MongoDB DocumentDB",
     "infrastructureJa": "AWS Route53 S3 CF Beanstalk RDS MongoDB DocumentDB",
     "teamRole": "Two-person team, programmer role",
-    "teamRoleJa": "2名体制でプログラマーとして参画",
-    "_link": {
-      "label": "Conversion Ads Integration Project",
-      "labelJa": "コンバージョン 広告連携 プロジェクト",
-      "href": "./projects/MicrosoftBingApi"
-    }
+    "teamRoleJa": "2名体制でプログラマーとして参画"
   },
   {
     "title": "Left a major IT company specializing in system development and infrastructure.I’m starting my own business and beginning my career as a freelance engineer",
