@@ -56,7 +56,7 @@ export function LocaleProvider({ children, initialLocale }: { children: React.Re
         router.replace(`${pathname}?${sp.toString()}`);
       }
     } catch { /* ignore */ }
-  }, []);
+  }, [pathname, searchParams, router]);
 
   const value = useMemo(() => ({ locale, setLocale }), [locale, setLocale]);
 
