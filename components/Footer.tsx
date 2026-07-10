@@ -1,29 +1,18 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useSupabaseUser } from '@/lib/useRequireSession';
 import { useLocale } from '@/components/LocaleProvider';
 
-const baseNavigation = [
+const navigation = [
   { key: 'profile', nameEn: 'Profile', nameJa: 'プロフィール', href: '/profile' },
   { key: 'skill', nameEn: 'Skill', nameJa: 'スキル', href: '/skillset' },
   { key: 'history', nameEn: 'History', nameJa: '経歴', href: '/history' },
   { key: 'projects', nameEn: 'Projects', nameJa: 'プロジェクト', href: '/projects' }
 ];
 
-const adminNavigation = [
-  { key: 'profileEdit', nameEn: 'ProfileEdit', nameJa: 'プロフィール編集', href: '/mypage/profileEdit' },
-  { key: 'skillEdit', nameEn: 'SkillEdit', nameJa: 'スキル編集', href: '/mypage/skillEdit' },
-  { key: 'historyEdit', nameEn: 'HistoryEdit', nameJa: '経歴編集', href: '/mypage/historyEdit' }
-];
-
 export default function Footer() {
   const pathname = usePathname();
-  const user = useSupabaseUser();
   const { locale } = useLocale();
-
-  const isMyPage = pathname.startsWith('/mypage');
-  const navigation = isMyPage ? (user === null ? baseNavigation : adminNavigation) : baseNavigation;
   return (
     <footer className="mt-32 flex-none">
       <div className="sm:px-8">

@@ -5,29 +5,18 @@ import Link from 'next/link';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import { SunIcon, MoonIcon, GlobeAltIcon } from '@heroicons/react/24/solid';
-import { createSupabaseClient } from '@/lib/supabaseClient';
-import { useSupabaseUser } from '@/lib/useRequireSession';
 import { useLocale } from '@/components/LocaleProvider';
-import ConfirmDialog from '@/components/ConfirmDialog';
 
-const baseNavigation = [
+const navigation = [
   { key: 'profile', nameEn: 'Profile', nameJa: 'プロフィール', href: '/profile' },
   { key: 'skill', nameEn: 'Skill', nameJa: 'スキル', href: '/skillset' },
   { key: 'history', nameEn: 'History', nameJa: '経歴', href: '/history' },
   { key: 'projects', nameEn: 'Projects', nameJa: 'プロジェクト', href: '/projects' },
 ];
 
-const adminNavigation = [
-  { key: 'profileEdit', nameEn: 'ProfileEdit', nameJa: 'プロフィール編集', href: '/mypage/profileEdit' },
-  { key: 'skillEdit', nameEn: 'SkillEdit', nameJa: 'スキル編集', href: '/mypage/skillEdit' },
-  { key: 'historyEdit', nameEn: 'HistoryEdit', nameJa: '経歴編集', href: '/mypage/historyEdit' },
-];
-
 export default function Header() {
   const pathname = usePathname();
   const [hideHeader, setHideHeader] = useState(false);
-  const user = useSupabaseUser();
-  const [dialogOpen, setDialogOpen] = useState(false);
   const [theme, setTheme] = useState<'light' | 'dark' | null>(null);
   const { locale, setLocale } = useLocale();
 
@@ -52,17 +41,6 @@ export default function Header() {
     }
   }, []);
 
-  const handleSignOut = async () => {
-    setDialogOpen(false);
-    const { error } = await createSupabaseClient().auth.signOut();
-    if (error) {
-      console.error('サインアウト失敗:', error.message);
-      alert('サインアウトに失敗しました');
-      return;
-    }
-    window.location.href = `/login?lang=${locale}`;
-  };
-
   useEffect(() => {
     let last = 0;
     const onScroll = () => {
@@ -74,24 +52,11 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const isMyPage = pathname.startsWith('/mypage');
-  const navigation = isMyPage ? (user === null ? baseNavigation : adminNavigation) : baseNavigation;
-
   return (
     <div
       className={`fixed-menu top-0 z-10 h-16 pt-6 transition-all duration-300 ${hideHeader ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'
         }`}
     >
-      <ConfirmDialog
-        open={dialogOpen}
-        onClose={() => setDialogOpen(false)}
-        onConfirm={handleSignOut}
-        title={locale === 'ja' ? 'サインアウト' : 'Sign out'}
-        message={locale === 'ja' ? '本当にサインアウトしますか？' : 'Are you sure you want to sign out?'}
-        confirmText={locale === 'ja' ? 'サインアウト' : 'Sign out'}
-        cancelText={locale === 'ja' ? 'キャンセル' : 'Cancel'}
-      />
-
       <div className="sm:px-8 w-full">
         <div className="mx-auto w-full max-w-7xl lg:px-8">
           <div className="relative px-4 sm:px-8 lg:px-12">
@@ -101,14 +66,10 @@ export default function Header() {
                 {/* Left: Logo */}
                 <div className="flex flex-1">
                   <div className="h-10 w-10 rounded-full bg-white/90 p-0.5 shadow-lg ring-1 shadow-zinc-800/5 ring-zinc-900/5 backdrop-blur-sm dark:bg-zinc-800/90 dark:ring-white/10">
-                    <button
-                      onClick={
-                        user
-                          ? () => setDialogOpen(true)
-                          : () => (window.location.href = `/login?lang=${locale}`)
-                      }
-                      className="pointer-events-auto"
-                      aria-label={locale === 'ja' ? 'サインアウト' : 'Sign out'}
+                    <Link
+                      href={`/profile?lang=${locale}`}
+                      className="pointer-events-auto block"
+                      aria-label={locale === 'ja' ? 'プロフィールへ' : 'Go to Profile'}
                     >
                       <img
                         alt=""
@@ -119,7 +80,7 @@ export default function Header() {
                         sizes="2.25rem"
                         src="/images/Temmyicon2.png?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                       />
-                    </button>
+                    </Link>
                   </div>
                 </div>
 
