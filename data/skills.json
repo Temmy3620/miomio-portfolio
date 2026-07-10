@@ -1,0 +1,26 @@
+{
+  "frontEnd": [
+    { "subject": "JavaScript", "value": 4 },
+    { "subject": "TypeScript", "value": 3 },
+    { "subject": "React.js", "value": 3 },
+    { "subject": "Next.js", "value": 3 },
+    { "subject": "Vue.js", "value": 2 },
+    { "subject": "Nuxt.js", "value": 2 }
+  ],
+  "backEnd": [
+    { "subject": "PHP", "value": 5 },
+    { "subject": "Java", "value": 1 },
+    { "subject": "Python", "value": 1 },
+    { "subject": "Laravel", "value": 4 },
+    { "subject": "MySQL", "value": 4 },
+    { "subject": "MongoDB", "value": 4 }
+  ],
+  "DevOps": [
+    { "subject": "AWS", "value": 4 },
+    { "subject": "Docker", "value": 3 },
+    { "subject": "GitHub", "value": 4 },
+    { "subject": "GCP", "value": 3 },
+    { "subject": "Azure", "value": 1 },
+    { "subject": "PHPUnit", "value": 3 }
+  ]
+}

@@ -3,33 +3,7 @@
 import SkillRadarChart from "@/components/SkillRadarChart";
 import { motion } from "framer-motion";
 import { useLocale } from '@/components/LocaleProvider';
-
-const frontEnd = [
-  { subject: 'JavaScript', value: 4 },
-  { subject: 'TypeScript', value: 3 },
-  { subject: 'React.js', value: 3 },
-  { subject: 'Next.js', value: 3 },
-  { subject: 'Vue.js', value: 2 },
-  { subject: 'Nuxt.js', value: 2 },
-]
-
-const backEnd = [
-  { subject: 'PHP', value: 5 },
-  { subject: 'Java', value: 1 },
-  { subject: 'Python', value: 1 },
-  { subject: 'Laravel', value: 4 },
-  { subject: 'MySQL', value: 4 },
-  { subject: 'MongoDB', value: 4 },
-]
-
-const DevOps = [
-  { subject: 'AWS', value: 4 },
-  { subject: 'Docker', value: 3 },
-  { subject: 'GitHub', value: 4 },
-  { subject: 'GCP', value: 3 },
-  { subject: 'Azure', value: 1 },
-  { subject: 'PHPUnit', value: 3 },
-]
+import skills from '@/data/skills.json';
 
 export default function SkillSet() {
   const { locale } = useLocale();
@@ -95,9 +69,9 @@ export default function SkillSet() {
         </motion.p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:grid-cols-3 mx-auto mt-10">
-          <SkillRadarChart title={t.front} data={frontEnd} />
-          <SkillRadarChart title={t.back} data={backEnd} radarColor="#66cdaa" />
-          <SkillRadarChart title={t.devops} data={DevOps} radarColor="#FAFAD2" />
+          <SkillRadarChart title={t.front} data={skills.frontEnd} />
+          <SkillRadarChart title={t.back} data={skills.backEnd} radarColor="#66cdaa" />
+          <SkillRadarChart title={t.devops} data={skills.DevOps} radarColor="#FAFAD2" />
         </div>
         <div className="mt-10">
           <h2 className="text-xl font-semibold mb-4 text-zinc-800 dark:text-zinc-300">{t.guide}</h2>
