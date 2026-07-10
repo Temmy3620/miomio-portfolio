@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { useEffect, useState } from 'react';
 import { SunIcon, MoonIcon, GlobeAltIcon } from '@heroicons/react/24/solid';
@@ -44,6 +45,7 @@ export default function Header() {
       else root.classList.remove('dark');
       try {
         localStorage.setItem('theme', initial);
+        document.cookie = `theme=${initial}; path=/; max-age=31536000`;
       } catch { }
     } catch {
       setTheme('dark');
@@ -129,7 +131,7 @@ export default function Header() {
                         const active = pathname.startsWith(item.href);
                         return (
                           <li key={item.key}>
-                            <a
+                            <Link
                               className={`relative block px-3 py-2 rounded-full transition hover:text-teal-500 dark:hover:text-teal-400 ${active ? 'text-teal-500 dark:text-teal-400' : ''
                                 }`}
                               href={`${item.href}?lang=${locale}`}
@@ -139,7 +141,7 @@ export default function Header() {
                               {active && (
                                 <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-teal-500/0 via-teal-500/40 to-teal-500/0 dark:from-teal-400/0 dark:via-teal-400/40 dark:to-teal-400/0" />
                               )}
-                            </a>
+                            </Link>
                           </li>
                         );
                       })}
@@ -174,14 +176,14 @@ export default function Header() {
                         <ul className="-my-2 divide-y text-base divide-zinc-900/10 text-zinc-700 dark:divide-zinc-100/5 dark:text-zinc-300">
                           {navigation.map((item) => (
                             <li key={item.key}>
-                              <a
+                              <Link
                                 href={`${item.href}?lang=${locale}`}
                                 className={`block py-2 hover:text-teal-400 ${pathname.startsWith(item.href) ? 'text-teal-400' : ''
                                   }`}
                                 aria-current={pathname.startsWith(item.href) ? 'page' : undefined}
                               >
                                 {locale === 'ja' ? item.nameJa : item.nameEn}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
