@@ -78,7 +78,7 @@ export default function ProjectsContent({ projects }: ProjectsContentProps) {
                   <img
                     src={project.imageSrc}
                     alt="Tall slender porcelain bottle with natural clay textured body and cork stopper."
-                    className="h-full w-full object-cover opacity-40 transition-opacity duration-250 group-hover:opacity-75"
+                    className="h-full w-full object-cover opacity-75 transition-opacity duration-250 group-hover:opacity-100"
                   />
                   <div className="absolute inset-0 flex items-end justify-start transition-opacity duration-250 opacity-100 group-hover:opacity-10">
                     <p className={`text-xl font-bold p-3 ${colorClassMap[project.colorKey ?? 'gray'] ?? 'text-gray-700'}`}>{project.name === 'In preparation...' ? (locale === 'ja' ? '準備中...' : 'In preparation...') : project.name}</p>
